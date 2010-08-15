@@ -1,0 +1,22 @@
+div.multiupload{
+	border:1px outset gray;
+	float:left;
+	padding:3px;
+	background:blue;
+}
+div.multiupload div.list{
+	border:1px inset black;
+	background: blue;
+}
+div.multiupload div.list div.item{
+	margin:1px;
+	background: white;
+}
+div.multiupload div.list div.item:hover{
+	background: #333;
+}
+div.multiupload div.list img{
+	float:left;
+	margin: 3px;
+	cursor:pointer;
+}

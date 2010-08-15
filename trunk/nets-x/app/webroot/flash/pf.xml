@@ -1,0 +1,5 @@
+<cross-domain-policy>  
+<allow-access-from domain="*" to-ports="1337" />  
+<allow-access-from domain="localhost" to-ports="*" />  
+<allow-access-from domain="*" to-ports="*" />  
+</cross-domain-policy>

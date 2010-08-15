@@ -1,0 +1,194 @@
+/* basic design things */
+@charset "UTF-8";
+
+/*
+#9FE303 = light green
+#75A800 = darker green
+*/
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color:#000;
+    margin: 0px;
+    padding: 0px;
+    /* the scrollbar definitions only work in MSIE, Opera and Conqueror */
+    /*scrollbar-face-color: #75A800;
+    scrollbar-track-color: #000000;
+    scrollbar-arrow-color: #75A800;
+    scrollbar-highlight-color: #9FE303;
+    scrollbar-shadow-color: #112208;
+    scrollbar-3dlight-color: #9FE303;
+    scrollbar-darkshadow-color: #000000;*/
+}
+
+/*div { border:1px solid #f00; }*/
+
+th {
+ /*text-align:left;*/
+ background: #333;
+ font-weight:bold;
+}
+
+h1 {
+ color: #DDD;
+ background-color: transparent;
+/*  border-bottom: 1px solid #D0D0D0; */
+ font-size: 16px;
+ font-weight: bold;
+ margin: 2px 0px 2px 0px;
+ padding: 5px 0 6px 0;
+}
+
+h2 {
+ color: #DDD;
+ background-color: transparent;
+ font-size: 14px;
+ font-weight: bold;
+ margin: 2px 0px 2px 0px;
+ padding: 5px 0 6px 0;
+}
+
+h3 {
+ color: #DDD;
+ background-color: transparent;
+ font-size: 12px;
+ font-weight: bold;
+ margin: 2px 0px 2px 0px;
+ padding: 5px 0 6px 0;
+}
+
+label {
+    display:block;
+}
+
+fieldset{
+    border:1px solid #666;
+    margin-bottom:10px;
+}
+
+legend {
+    font-weight:bold;
+}
+legend.big {
+ color: #DDD;
+ background-color: transparent;
+ font-size: 12px;
+}
+
+input, textarea, select {
+    background-color:#CCC;
+    border:1px solid #444;
+    margin-bottom:10px;
+}
+
+textarea {
+	border:1px solid #444;
+	width:575px;
+	height:150px;
+}
+
+.checkbox input{
+	display:inline;
+	margin-bottom:0px;
+}
+
+.checkbox label{
+    display:inline;	
+}
+
+img {
+    border:none;	
+}
+
+/* classes in alphabetical (!) order: */
+.breadcrumb {color:#CCC; background-color:#000; border-bottom:4px solid #444;}
+
+.box {border:1px solid #999;}
+.btn {background-color:#000; border:2px solid #73a304; color: #73a304; font-weight:bold;}
+.container{background-color:#000;}
+.error {background-color:#F44; font-weight:bold;}
+.error-message {background-color:#F44;}
+.even {background: #555555;}
+.form-error {border:1px solid #F00;}
+.grey {background-color: #333; }
+.help {cursor:help;}
+.message {background-color:#73a304;}
+.odd {background: #464749;}
+.padded{margin:10px;}
+.rightborder {border-right:1px solid #666;}
+.shellscript {background-color:#000; color:#9FE303; width:100%; height:250px; font-size:11px;}
+.small{font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#253657;}
+.warning {background-color:#C60;}
+.windowtop{background:#000; text-align:right;}
+
+
+#flashMessage { text-align:center; padding:4px; font-weight:bold; }
+#flashMessage .ok {background-color:#73a304;}
+#flashMessage .warning {background-color:#4FF;}
+#flashMessage .error {background-color:#F44;}
+
+
+/* ---------from cake.generic.css ----------------  */
+
+/* tables */
+
+table.cake {
+	width: 100%;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	color:#333;
+	background-color: #fff;
+	clear:both;
+	padding: 0;
+	margin: 0 0 2em 0;
+	white-space: normal;
+}
+table.cake th {
+	background-color: #e2e2e2;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #003d4c;
+	border-bottom: 1px solid #003d4c;
+	text-align: center;
+	padding:1px 4px;
+}
+table.cake tr td {
+	border-right: 1px solid #ddd;
+	padding:4px 4px;
+	vertical-align:top;
+	text-align: center;
+}
+table.cake tr.altRow td {
+    background: #f4f4f4;
+}
+table.cake td.actions {
+    white-space: nowrap;
+}
+div.related {
+	clear:both;
+	display:block;
+}
+dl {
+	line-height:2em;
+	margin:0em 1em;
+	float:left;
+	width: 400px;
+}
+dt {
+	font-weight: bold;
+	vertical-align:top;
+}
+dd {
+	margin-left:10em;
+	margin-top:-2em;
+	vertical-align:top;
+}
+
+.cake-sql-log {
+    margin-top:600px;
+}

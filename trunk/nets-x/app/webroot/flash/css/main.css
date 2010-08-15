@@ -1,0 +1,92 @@
+/* CSS file */
+TextInput
+{
+	borderColor: #00FF00;
+	backgroundColor: #4E4E4E;
+	color: #000000;
+}
+
+Panel
+{
+	cornerRadius: 5;
+	backgroundColor: #4E4E4E;
+	color: #00FF00;
+	controlBarStyleName: panelControlBar;
+	fontFamily: Verdana;
+	fontWeight: normal;
+	borderColor: #000000;
+	borderAlpha: 1.0;
+}
+Button
+{
+	borderColor: #7D7D7D;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #000000, #000000;
+	color: #00FF00;
+	textRollOverColor: #41FF41;
+	themeColor: #00FF00;
+	textSelectedColor: #4E4E4E;
+	disabledColor: #000000;
+}
+Application
+{
+	backgroundGradientAlphas: 1.0, 1.0;
+	backgroundGradientColors: #000000, #000000;
+}
+ComboBox
+{
+	color: #00FF00;
+	dropdownStyleName: comboBoxDropdown;
+}
+TextArea
+{
+	backgroundColor: #4E4E4E;
+	color: #000000;
+}
+ScrollBar
+{
+	trackColors: #4E4E4E, #00FF00;
+}
+ApplicationControlBar
+{
+	color: #00FF00;
+	disabledColor: #000000;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #000000, #000000;
+}
+Menu
+{
+	color: #00FF00;
+	textRollOverColor: #4E4E4E;
+	textSelectedColor: #B5B5B5;
+	disabledColor: #E8E8E8;
+	backgroundDisabledColor: #3C3C3C;
+	backgroundColor: #000000;
+}
+Alert
+{
+	borderColor: #000000;
+	backgroundColor: #4E4E4E;
+	color: #00FF00;
+}
+TabNavigator
+{
+	borderColor: #000000;
+	tabStyleName: tabNavigatorTab;
+	color: #000000;
+	backgroundColor: #4E4E4E;
+	borderStyle: solid;
+}
+@font-face
+{
+	fontFamily: "Arial Black";
+	fontWeight: normal;
+	fontStyle: normal;
+	src: local("Arial Black");
+}
+.comboBoxDropdown
+{
+	rollOverColor: #00FF00;
+	selectionColor: #4E4E4E;
+	backgroundColor: #000000;
+}

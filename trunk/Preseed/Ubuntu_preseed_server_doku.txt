@@ -1,0 +1,68 @@
+# NetS-X Ubuntu Preseed Server Doku Version 0.8
+# Alexander Ott <mail[aet]alexanderott.com>
+
+Installation of an Ubuntu Preseed Server for automatic installation (rapid deployment)
+
+1. Installation of the Server:
+Choose the actual Ubuntu LTS version from:
+
+http://www.ubuntu.com/getubuntu/download
+-> Alternative download options, including Ubuntu installer for Windows
+-> choose LTS & 64-bit version
+
+Bur the image on a CD and boot from it.
+Now install it as CLI system (boot menu).
+This would end up in an minimal system.
+
+2. Installation of additional packages:
+Do a:
+-------------------------------cut
+
+	aptitude install vim ssh tftpd-hpa lftp
+-------------------------------cut
+
+
+3. Setup the TFTP Ubuntu boot files:
+the tftp directory is under /var/lib/tftpboot
+
+Do:
+-------------------------------cut
+
+	cd /var/lib/tftpboot/
+	lftp -c "open http://archive.ubuntu.com/ubuntu/dists/lucid/main/installer-amd64/current/images/netboot/ ; mirror"
+	cd /var/lib/tftpboot/ubuntu-installer/amd64/boot-screens
+	wget http://www.nets-x.hs-bremen.de/netsx_WS08/trunk/Preseed/splash/netsx_splash.png -O ./splash.png
+
+-------------------------------cut
+
+You should exchange lucid for the appropriate Name of your chosen Ubuntu LTS Version.
+
+4. Alter boot configuration of TFTP Clients:
+The config file is located under /var/lib/tftpboot/ubuntu-installer/amd64/boot-screens/text.cfg,
+so do:
+	vim /var/lib/tftpboot/ubuntu-installer/amd64/boot-screens/text.cfg
+
+Write in the new text.cfg this:
+-------------------------------cut
+	default install
+	label install
+	        menu label ^Install
+	        menu default
+	        kernel ubuntu-installer/amd64/linux
+	        append vga=normal initrd=ubuntu-installer/amd64/initrd.gz -- quiet 
+
+	label netsxc
+    	    menu label ^NetS-X VMware Client install
+    	    kernel ubuntu-installer/amd64/linux
+		append tasks=standard  auto=true priority=critical preseed/interactive=false interface=auto url=http://www.nets-x.hs-bremen.de/netsx_WS08/branches/netsx_ubuntu_vm/netsx_ubuntu_preseed_config.seed vga=normal initrd=ubuntu-installer/amd64/initrd.gz -- quiet
+
+	label netsxs
+    	    menu label ^NetS-X VMware Server install
+    	    kernel ubuntu-installer/amd64/linux
+		append tasks=standard  auto=true priority=critical preseed/interactive=false interface=auto url=http://www.nets-x.hs-bremen.de/netsx_WS08/branches/netsx_ubuntu_vm/netsx_server_ubuntu_preseed_config.seed vga=normal initrd=ubuntu-installer/amd64/initrd.gz -- quiet 
+
+-------------------------------cut
+
+Be aware our example pressed file is:
+	http://www.nets-x.hs-bremen.de/netsx_WS08/branches/netsx_ubuntu_vm/netsx_ubuntu_preseed_config.seed
+You may have to change yours to reflect your personal settings.

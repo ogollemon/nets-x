@@ -1,0 +1,17 @@
+# NetS-X Client Late Script Version 0.2
+# Alexander Ott <mail[aet]alexanderott.com>
+
+#This script will be triggert by nets-x clients on first boot of automatic installed system
+
+#building crontab for root with "apt-get update" daily
+"# m h  dom mon dow   command" > /tmp/crontab
+"0 0 * * * apt-get update >/dev/null" >> /tmp/crontab
+crontab  /tmp/crontab
+
+##client identification & network settings???
+
+
+
+# delete script itself and boot trigger
+rm /etc/rc2.d/S99install
+rm /root/script

@@ -1,0 +1,46 @@
+# NetS-X Client Late Script Version 0.2
+# Alexander Ott <mail[aet]alexanderott.com>
+
+#This script will be triggert by nets-x clients on first boot of automatic installed system
+
+#building crontab for root with "apt-get update" daily
+echo "# m h  dom mon dow   command" > /tmp/crontab
+echo "0 0 * * * apt-get update >/dev/null" >> /tmp/crontab
+crontab  /tmp/crontab
+
+##client identification & network settings???
+
+#autostart apt-cacher
+sed 's/AUTOSTART=0/AUTOSTART=1/' /etc/default/apt-cacher> /etc/default/apt-cacher.newfile
+mv /etc/default/apt-cacher.newfile /etc/default/apt-cacher
+
+sleep 20
+
+#apt-cacher restart
+/etc/init.d/apt-cacher restart
+
+#activate van support
+echo "8021q" >> /etc/modules
+
+#update
+apt-get update
+
+mkdir -p /home/vms
+
+cd /root
+wget http://www.nets-x.hs-bremen.de/netsx_WS08/trunk/Preseed/recipes/late_script/build_netsx_vms.script
+chmod +x ./build_netsx_vms.script
+
+#setting interfaces
+wget http://www.nets-x.hs-bremen.de/netsx_WS08/trunk/Preseed/config_files/vm_server/interfaces
+cp ./interfaces /etc/network/
+
+
+
+# delete script itself and boot trigger
+rm /etc/rc2.d/S99install
+
+#rm /root/script
+
+#reboot to system
+reboot

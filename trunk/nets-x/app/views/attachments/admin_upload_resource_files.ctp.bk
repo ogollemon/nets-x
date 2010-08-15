@@ -1,0 +1,28 @@
+<?php 
+debug($data);exit;
+    print '<div id="MultiUploadFiles">';
+    //this calls the admin routine in the attachment controller
+    echo $form->create('Attachment',array('type'=>'file', 'id' => 'main_form', 'action' => 'uploadResourceFiles/' . $scenario_id)); 
+ 
+    //the hidden input tells the attachment controller where it should dump the files because the upload routine is also used to upload theme files in another place
+    print $form->hidden('Attachment.scenario_id', array('label'=>false, 'value'=>$scenario_id)); 
+
+    print 'I want to upload resource files for the new scenario to the database.
+    </br></br>Maximal 3 files please.
+    <input type="file" name="userfile"><br clear="all"/>'; 
+
+    print '<td valign="top" width="100">dependent parameters: <br />';
+    $linked = $data['Parameter'];
+    for ($j=0; $j<sizeof($linked); $j++){
+        $key2 = $linked[$j]['name'];
+        if ($key2 != $data['Parameter'][$i]['name']){ //only link to other parameters
+            $linkOptions = array('value'=>$linked[$j]['id']);
+            if ($data['Parameter'][$i]['linked']==$linked[$j]['id']){
+                $linkOptions['checked'] = 'checked';
+            }
+            print $key2.':'.$form->checkbox($data['Parameter'][$i]['name'].'.linked]['.$linked[$j]['id'].']', $linkOptions).'<br />';
+        }
+        next($linked);
+    }
+    print '$form->end('Send');</div> ?> ';
+?>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<path version="0.99b">
+ <waypoints>
+  <point id="1" x="475" y="375" name="Chef" />  
+  <point id="2" x="875" y="375" name="Secretary" />  
+  <point id="3" x="875" y="625" name="Waypoint3" />  
+  <point id="4" x="1325" y="625" name="Waypoint4" />  
+  <point id="5" x="1775" y="525" name="Waypoint5" />  
+  <point id="6" x="2175" y="525" name="Waypoint6" />  
+  <point id="7" x="2225" y="325" name="gina" />  
+  <point id="8" x="2067" y="796" name="players_desk" />  
+  <point id="9" x="2525" y="725" name="Waypoint9" />  
+  <point id="10" x="2575" y="375" name="water_closet" />  
+  <point id="11" x="2575" y="1125" name="Waypoint11" />  
+  <point id="12" x="2375" y="1125" name="Waypoint12" />  
+  <point id="13" x="2375" y="1375" name="meeting_room" />
+  <point id="14" x="1375" y="1125" name="Waypoint14" />
+  <point id="15" x="1375" y="1425" name="break_room" />
+  <point id="16" x="871" y="930" name="Waypoint16" />
+  <point id="17" x="875" y="1475" name="Waypoint17" />
+  <point id="18" x="225" y="1425" name="Waypoint18" />
+  <point id="19" x="175" y="1125" name="Waypoint19" />
+  <point id="20" x="375" y="775" name="Waypoint20" />
+  <point id="21" x="675" y="725" name="Waypoint21" />
+ </waypoints>
+ <connections>
+  <connect id="24" from="14" to="8" weight="100" />
+  <connect id="23" from="21" to="16" weight="100" />
+  <connect id="22" from="21" to="3" weight="100" />
+  <connect id="21" from="20" to="21" weight="100" />
+  <connect id="20" from="8" to="6" weight="100" />
+  <connect id="19" from="9" to="11" weight="100" />
+  <connect id="18" from="14" to="12" weight="100" />
+  <connect id="17" from="14" to="16" weight="100" />
+  <connect id="15" from="19" to="20" weight="100" />
+  <connect id="14" from="18" to="19" weight="100" />
+  <connect id="13" from="17" to="18" weight="100" />
+  <connect id="12" from="16" to="17" weight="100" />
+  <connect id="11" from="14" to="15" weight="100" />
+  <connect id="10" from="12" to="13" weight="100" />
+  <connect id="9" from="11" to="12" weight="100" />
+  <connect id="8" from="9" to="10" weight="100" />
+  <connect id="7" from="8" to="9" weight="100" />
+  <connect id="6" from="6" to="7" weight="100" />
+  <connect id="5" from="5" to="6" weight="100" />
+  <connect id="4" from="4" to="5" weight="100" />
+  <connect id="3" from="3" to="4" weight="100" />
+  <connect id="2" from="2" to="3" weight="100" />
+  <connect id="1" from="1" to="2" weight="100" />
+ </connections>
+</path>
