@@ -2,13 +2,13 @@
 
 = Introduction =
 This page guide through the installation process of the NetS-X.
-
 The NetS-X VMserver installation is fully automatic via pxe boot and preseed. The Topology itself has to be setup manually. 
 
-=Installation short=
+Installation topics
 
-  # Router Installation
+  # OpenVPN Router Installation
   # VMserver Installation
+  # Router Installation
   # Identify network cards
   # NetS-X Game Engine Installation
   # NetS-X Clients Installation
@@ -26,10 +26,20 @@ The NetS-X VMserver installation is fully automatic via pxe boot and preseed. Th
   * one Fonera-Router
   * one connector between Alfa and Fonera
 
-=Configure pxe boot=
+=OpenVPN Router Installation=
+
+NetS-X makes use of two different router models the Asus and the Fonera router. The Fonera router is designated scenario hardware. At the moment it is used for the WEP Crack scenario only.
+The Asus routers however are used as router in the NetS-X Topology itself, but also as OpenVPN gateway for remote use.
+NetS-X makes use of PacketProtector as OpenVPN gateway. It uses one of the Asus routers combined with the USB flashdirve. See the PacketProtector Hompage for more details on the installation.
+
+http://packetprotector.org/
+
+
+==Configure pxe boot==
 
  To configure pxe boot on your router add the following line to your DNSmasq config file.
 {{{
 dhcp-boot=pxelinux.0,www.nets-x.hs-bremen.de,194.94.26.40
 }}}
 
+=VMserver Installation=
