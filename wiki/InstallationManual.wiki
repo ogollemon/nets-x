@@ -35,6 +35,7 @@ NetS-X makes use of PacketProtector as OpenVPN gateway. It uses one of the Asus 
 http://packetprotector.org/
 
 
+
 ==Configure pxe boot==
 
  To configure pxe boot on your router add the following line to your DNSmasq config file.
