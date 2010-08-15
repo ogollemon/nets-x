@@ -1,7 +1,7 @@
 #summary One-NetS-X Installation Manual.
 
 = Introduction =
-This page guide through the installation process of the NetS-X.
+This page guides through the installation process of NetS-X.
 The NetS-X VMserver installation is fully automatic via pxe boot and preseed. The Topology itself has to be setup manually. 
 
 Installation topics
@@ -44,3 +44,5 @@ dhcp-boot=pxelinux.0,www.nets-x.hs-bremen.de,194.94.26.40
 }}}
 
 =VMserver Installation=
+
+Connect the first ethernet interface with the OpenVPN router and initiate a pxe boot.
