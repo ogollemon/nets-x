@@ -1,0 +1,35 @@
+#summary One-NetS-X Installation Manual.
+
+= Introduction =
+This page guide through the installation process of the NetS-X.
+
+The NetS-X VMserver installation is fully automatic via pxe boot and preseed. The Topology itself has to be setup manually. 
+
+=Installation short=
+
+  # Router Installation
+  # VMserver Installation
+  # Identify network cards
+  # NetS-X Game Engine Installation
+  # NetS-X Clients Installation
+  # NetS-X Backtrack Clients Integration
+  # Interface Konfiguration Guests
+  # WEP Scenario Hardware Integration
+
+=Needed Hardware=
+
+  * one physical computer (4 CPUs + 8GB RAM)
+  * four physical ethernet network ports 
+  * three Asus WL-500G Premium V2 (Router)
+  * one 128 MB USB Flashdrive
+  * one Alfa AWUS036H (500mW USB WLAN Adapter)
+  * one Fonera-Router
+  * one connector between Alfa and Fonera
+
+=Configure pxe boot=
+
+ To configure pxe boot on your router add the following line to your DNSmasq config file.
+{{{
+dhcp-boot=pxelinux.0,www.nets-x.hs-bremen.de,194.94.26.40
+}}}
+
