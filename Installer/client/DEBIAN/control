@@ -1,0 +1,8 @@
+Package: netsx-client
+Version: 17
+Section: nets-x
+Priority: optional
+Architecture: all
+Depends: openssh-server 
+Maintainer: Alexander Ott <mail@alexanderott.com>
+Description: nets-x game engine client

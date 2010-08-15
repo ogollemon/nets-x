@@ -1,0 +1,76 @@
+#! /bin/sh
+set -e
+
+# /etc/init.d/ssh: start and stop the NetS-X Server
+
+export PATH="${PATH:+$PATH:}/usr/sbin:/sbin"
+
+
+USER=root
+PW=$(grep $USER /etc/nets-x/nets-x.conf | cut -d " " -f 2)
+
+
+OVPN_IF=$(mysql -u$USER -p$PW nets-x -N -e "SELECT value FROM settings WHERE id='3'")
+
+GINET_IF=$(mysql -u$USER -p$PW nets-x -N -e "SELECT value FROM settings WHERE id='2'")
+GINET_ADDR=$(mysql -u$USER -p$PW nets-x -N -e "SELECT ip FROM settings WHERE id='2'")
+GINET_NMASK=$(mysql -u$USER -p$PW nets-x -N -e "SELECT netmask FROM settings WHERE id='2'")
+
+GINET_DMZ_NET=$(mysql -u$USER -p$PW nets-x -N -e "SELECT ip FROM settings WHERE id='4'")
+GINET_DMZ_NMASK=$(mysql -u$USER -p$PW nets-x -N -e "SELECT netmask FROM settings WHERE id='4'")
+GINET_DMZ_GW=$(mysql -u$USER -p$PW nets-x -N -e "SELECT gateway FROM settings WHERE id='4'")
+
+COMCHAN_IF=$(mysql -u$USER -p$PW nets-x -N -e "SELECT value FROM settings WHERE id='1'")
+COMCHAN_ADDR=$(mysql -u$USER -p$PW nets-x -N -e "SELECT ip FROM settings WHERE id='1'")
+COMCHAN_NMASK=$(mysql -u$USER -p$PW nets-x -N -e "SELECT netmask FROM settings WHERE id='1'")
+
+NET_PRELUDE=$(mysql -u$USER -p$PW nets-x -N -e "SELECT ip FROM settings WHERE id='5'")
+NMASK_PRELUDE=$(mysql -u$USER -p$PW nets-x -N -e "SELECT netmask FROM settings WHERE id='5'")
+
+NET_WORKER=$(mysql -u$USER -p$PW nets-x -N -e "SELECT ip FROM settings WHERE id='6'")
+NMASK_WORKER=$(mysql -u$USER -p$PW nets-x -N -e "SELECT netmask FROM settings WHERE id='6'")
+
+NET_SERVER=$(mysql -u$USER -p$PW nets-x -N -e "SELECT ip FROM settings WHERE id='7'")
+NMASK_SERVER=$(mysql -u$USER -p$PW nets-x -N -e "SELECT netmask FROM settings WHERE id='7'")
+
+
+case "$1" in
+  start)
+        echo -n "Starting NetS-X Server"
+	cp -f /var/www/.ssh/id_rsa.old /var/www/.ssh/id_rsa > /dev/null 
+	cp -f /var/www/nets-x/index.php.old /var/www/nets-x/index.php > /dev/null	
+	echo 1 > /proc/sys/net/ipv4/ip_forward
+	## Flush all chains
+	/sbin/iptables -t nat -F POSTROUTING  > /dev/null
+	/sbin/iptables -t nat -F PREROUTING  > /dev/null
+	# add portforwarding rules (masquerade all used interfaces)
+	/sbin/iptables -t nat -A POSTROUTING -o $OVPN_IF -j MASQUERADE
+	/sbin/iptables -t nat -A POSTROUTING -o $GINET_IF -j MASQUERADE
+	/sbin/iptables -t nat -A POSTROUTING -o $COMCHAN_IF -j MASQUERADE
+	ifconfig $GINET_IF $GINET_ADDR netmask $GINET_NMASK up  > /dev/null
+	route add -net $GINET_DMZ_NET netmask $GINET_DMZ_NMASK gw $GINET_DMZ_GW dev $GINET_IF  > /dev/null
+	ifconfig $COMCHAN_IF $COMCHAN_ADDR netmask $COMCHAN_NMASK up  > /dev/null
+	route add -net $NET_PRELUDE netmask $NMASK_PRELUDE dev $COMCHAN_IF  > /dev/null
+	route add -net $NET_WORKER netmask $NMASK_WORKER dev $COMCHAN_IF  > /dev/null
+	route add -net $NET_SERVER netmask $NMASK_SERVER dev $COMCHAN_IF  > /dev/null
+	echo "NetS-X Server Started"
+        echo "."
+ 	;;
+  stop)
+        echo -n "Stopping NetS-X Server"
+	rm -f /var/www/.ssh/id_rsa  > /dev/null
+	rm -f /var/www/nets-x/index.php  > /dev/null
+	## Flush all chains
+	/sbin/iptables -t nat -F POSTROUTING  > /dev/null
+	/sbin/iptables -t nat -F PREROUTING  > /dev/null
+	echo "NetS-X Server halted"
+        echo "."
+	;;
+
+  *)
+	echo "Usage: /etc/init.d/nets-x {start|stop}"
+	exit 1
+esac
+
+exit 0
+

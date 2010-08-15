@@ -1,0 +1,7 @@
+#! /bin/sh
+set -e
+
+USER=root
+PW=$(grep $USER /etc/nets-x/nets-x.conf | cut -d " " -f 2)
+
+mysql -u$USER -p$PW nets-x -N -e "TRUNCATE TABLE used_hosts"

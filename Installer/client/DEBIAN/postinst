@@ -1,0 +1,45 @@
+#!/bin/sh
+chown -R root:root /root
+
+#change message of the day
+echo "This is NetS-X, live" > /etc/motd
+echo "Have a safe and productive day!" >> /etc/motd
+
+#make scripts executeable
+#chmod +x /etc/init.d/hackinggame-netsx
+chmod +x /root/pingtest.sh
+
+
+#ln -s /etc/init.d/hackinggame /etc/rc2.d/S98hackinggame
+#ln -s /etc/init.d/hackinggame-netsx /etc/rc2.d/S99hackinggame-netsx
+
+#change repositorys to Game_Engine's apt-cacher running on eth1 (10.0.8.20:3142)
+sed 's/http:\/\//http:\/\/10.0.8.20:3142\//' /etc/apt/sources.list> /etc/apt/sources.list.hackinggame
+cp /etc/apt/sources.list /etc/apt/sources.list.normal
+
+#the propper sources.list will be inserted by the /etc/init.d/netsx-client script
+#echo "auto  eth1" >> /etc/network/interfaces
+
+#sshd tweaks (faster scenario setup & cleanup)
+sed 's/SSHD_OPTS=/SSHD_OPTS=\"-u0\"/'  /etc/default/ssh>  /etc/default/ssh.hackinggame 
+mv /etc/default/ssh.hackinggame /etc/default/ssh
+echo "#IP	Hostname		#Network ID"  >> /etc/hosts
+echo "10.0.8.20 GameEngine"		#1 GameEngine  >> /etc/hosts
+echo "10.0.8.10 GI_Server 		#1 GI_Server "  >> /etc/hosts
+echo "172.20.20.132 Cleopatra 	#3 Cleopatra "  >> /etc/hosts
+echo "172.20.10.3 Zeus 		#3 Zeus "  >> /etc/hosts
+echo "172.20.30.21 Pluto 		#3 Pluto "  >> /etc/hosts
+echo "172.20.40.3 Uranus 		#2 Cacti server"   >> /etc/hosts
+echo "10.0.1.3 DMZ_SSERVER 	#2 Webserver "  >> /etc/hosts
+echo "172.20.20.131 Ramses 	#3 Ramses "  >> /etc/hosts
+echo "172.20.30.22 Venus 		#3 Venus "  >> /etc/hosts
+echo "10.0.1.4 DMZ_HONEYD 	#2 Honeyd "  >> /etc/hosts
+echo "172.20.40.2 VLAN40_PC1 	#3 VLAN40_PC1"   >> /etc/hosts
+echo "10.0.8.40 VM Server 		#1 VM Server "  >> /etc/hosts
+echo "10.0.8.100 Honeypot Server 	#1 Honeypot"  >> /etc/hosts
+echo "172.20.20.1 RouterNAT		#3 RouterNat" >> /etc/hosts
+echo "10.0.1.2	RouterInternet		#1 Router" >> /etc/hosts
+
+/etc/init.d/ssh restart
+
+exit 0

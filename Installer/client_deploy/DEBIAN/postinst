@@ -1,0 +1,4 @@
+#!/bin/sh
+chown -R root:root /root
+chmod +x /root/client_tools/*
+exit 0

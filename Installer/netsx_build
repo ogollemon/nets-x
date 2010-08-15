@@ -1,0 +1,110 @@
+#!/bin/bash
+START_DIR=`pwd`
+echo
+echo "NetS-X Builder"
+echo "Version: 0.6.3"
+echo "Codename: Diploma Thesis"
+echo "Maintainer: Alexander Ott <mail[aet]alexanderott.com>"
+echo
+echo
+
+#some environment stuff
+MIRROR=www.nets-x.hs-bremen.de
+SVN_REP=netsx_WS08
+SVN_FOLDER=trunk
+SVN_PACKAGE_FOLDER=Installer
+DEB_REP=/var/www/netsx
+
+
+cd /root
+rm -rf $SVN_PACKAGE_FOLDER
+echo "Checking for dkpg-dev..."
+apt-get install -y  --assume-yes --force-yes  --allow-unauthenticated dpkg-dev > /dev/null
+echo "getting NetS-X client & server from SVN"
+svn export http://$MIRROR/$SVN_REP/$SVN_FOLDER/$SVN_PACKAGE_FOLDER > /dev/null
+DATE=`date -u`
+mkdir -p /root/$SVN_PACKAGE_FOLDER/server/DEBIAN
+cd /root/$SVN_PACKAGE_FOLDER/server
+rm -rf $DEB_REP
+
+
+#this is odd, I cant remember what I want to do with this
+#cat /etc/apt/sources.list|grep debian > /dev/null && aptitude install debian packete
+
+#svn checkout
+rm -rf ./tmp/
+mkdir ./tmp
+rm -rf ./var/www/nets-x
+#mkdir -p ./var/www/nets-x
+cd ./tmp
+echo "getting NetS-X database"
+svn export http://$MIRROR/$SVN_REP/$SVN_FOLDER/DatabaseBackup/ > /dev/null
+cd ..
+cd ./var/www/
+SVNV=`svn export http://$MIRROR/$SVN_REP/$SVN_FOLDER/nets-x |grep "Revision" |cut -d " " -f 3`
+cp -R /root/$SVN_PACKAGE_FOLDER/.ssh /root/$SVN_PACKAGE_FOLDER/server/var/www/ 
+cd /root/$SVN_PACKAGE_FOLDER/
+rm -R /root/$SVN_PACKAGE_FOLDER/server/var/www/nets-x/app/tmp/cache/*
+
+#build package
+echo "Package: netsx-server" > /root/$SVN_PACKAGE_FOLDER/server/DEBIAN/control
+echo "Version: $SVNV" >> /root/$SVN_PACKAGE_FOLDER/server/DEBIAN/control
+echo "Section: nets-x" >> /root/$SVN_PACKAGE_FOLDER/server/DEBIAN/control
+echo "Priority: optional" >> /root/$SVN_PACKAGE_FOLDER/server/DEBIAN/control
+echo "Architecture: all" >> /root/$SVN_PACKAGE_FOLDER/server/DEBIAN/control
+echo "Depends: apt-cacher, dnsmasq, apache2, iptables, php5, php5-mysql, phpmyadmin, mysql-server, netsx-client" >> /root/$SVN_PACKAGE_FOLDER/server/DEBIAN/control
+echo "Maintainer: Alexander Ott <mail[aet]alexanderott.com>" >> /root/$SVN_PACKAGE_FOLDER/server/DEBIAN/control
+echo "Description: game engine and database, SVN Build $SVNV" >> /root/$SVN_PACKAGE_FOLDER/server/DEBIAN/control
+
+mkdir -p $DEB_REP/
+mkdir -p /root/$SVN_PACKAGE_FOLDER/deb
+cd /root/$SVN_PACKAGE_FOLDER/deb
+
+echo "add ssh keys fom $SVN_PACKAGE_FOLDER/.ssh"
+
+#addin ssh-key to authorized_hosts
+cat /root/$SVN_PACKAGE_FOLDER/.ssh/id_rsa.pub > /root/$SVN_PACKAGE_FOLDER/client/root/.ssh/authorized_keys
+
+#Building .deb packages
+
+dpkg-deb -b ../server/ ./
+dpkg-deb -b ../client/ ./
+#cd $DEB_REP/
+
+#Bulding repository
+dpkg-scanpackages ./ /dev/null | gzip -9c > ./Packages.gz && echo && echo "NetS-X repository files are located under $DEB_REP" && echo
+
+MD5FILES=`find . -name Packages -o -name Packages.gz -o \
+   -name Sources -o -name Sources.gz -o -name Release \
+   | sed 's,^[^/]*/,,'`
+
+echo "Origin: Ubuntu
+Label: Ubuntu
+Suite: ubuntu-updates
+Version: 10.4
+Codename: lucid
+Date: $DATE
+Architectures: amd64 hppa i386 ia64 powerpc sparc
+Components: main
+Description: Ubuntu Updates
+MD5Sum:" > Release
+
+for m in $MD5FILES; do
+   echo -n " " >> Release
+   SIZE=`wc -c $m | sed 's/ *\([0-9]*\).*/\1/'`
+   SUM=`md5sum $m | sed 's/^ *\([A-Fa-f0-9]*\) .*/\1/'`
+   printf "%s %16d %s\n" $SUM $SIZE $m >> Release
+done
+
+echo "SHA1:" >> Release
+for m in $MD5FILES; do
+   echo -n " " >> Release
+   SIZE=`wc -c $m | sed 's/ *\([0-9]*\).*/\1/'`
+   SUM=`sha1sum $m | sed 's/^ *\([A-Fa-f0-9]*\) .*/\1/'`
+   printf "%s %16d %s\n" $SUM $SIZE $m >> Release
+done
+
+mv /root/$SVN_PACKAGE_FOLDER/deb/* $DEB_REP/
+rm -rf /root/$SVN_PACKAGE_FOLDER
+rm -f $START_DIR/netsx
+

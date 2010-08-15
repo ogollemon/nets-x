@@ -1,0 +1,223 @@
+#!/bin/bash
+#Parameter Section -> please alter here
+GAME_ENGINE_DOMAIN=netzlabor.hs-bremen.de
+
+#databases to save:
+
+Databases="players hosts players_scenarios players_skills scenariosetups used_hosts used_parametersets" #all for an update important tables in the nets-x database 
+
+
+#do not edit after this line
+
+IP_GAME_ENGINE=`ifconfig eth0|grep esse:1|cut -d ":" -f 2|cut -d " " -f 1`
+
+
+# remove hackinggame start
+#rm -f /etc/rc2.d/S98hackinggame
+rm -f /etc/rc2.d/S99hackinggame-netsx
+rm -f /etc/init.d/hackinggame
+rm -f /etc/init.d/hackinggame-netsx
+
+
+
+#test if old installation present for saving data
+#if config file is present, skipp password question
+ if [ -f /etc/nets-x/nets-x.conf ]; then
+touch /tmp/netsx_update
+echo
+echo "found previous install... updating"
+echo
+ #
+ #config file is present -> read root password
+ #
+ password=`cat  /etc/nets-x/nets-x.conf | grep root | cut -d" " -f 2`
+ netsx_password=`cat  /etc/nets-x/nets-x.conf | grep nets-x | cut -d" " -f 2`
+ #
+ #save old configuration
+ #
+echo "saving old NetS-X scenario packages"
+ mkdir -p /tmp/nets-x/packages
+ mkdir -p /tmp/nets-x/database
+ #
+ #copy packages
+ #
+ cp /var/www/nets-x/app/packages/* /tmp/nets-x/packages
+ #
+ # dump important databases with overwrite flag (all databases in $Databases are getting dumped)
+ #
+ mysqldump --add-drop-table -u root -p$password nets-x $Databases > /tmp/nets-x/database/backup.sql
+ #drop old nets-x database
+echo
+echo "please accept the nets-x database dropping"
+echo
+ mysqladmin -u root -p$password drop nets-x
+ #create database
+ mysqladmin -u root -p$password create nets-x
+ else
+ password=1
+ password1=0
+ #ask for root database password, proceed only when password & password1 are identical
+ while [ "$password" != "$password1" ]
+  do
+   echo "Please enter root msql password."
+   echo
+   read -e -p "password:" -s -t 30 password
+   echo
+   echo "Please input the same password again.!"
+   echo
+   read -e -p "password:" -s -t 30 password1
+  done
+ netsx_password=1
+ netsx_password1=0
+ #ask for root database password, proceed only when password & password1 are identical
+ while [ "$netsx_password" != "$netsx_password1" ]
+  do
+   echo
+   echo "Please enter nets-x msql password."
+   echo
+   read -e -p "password:" -s -t 30 netsx_password
+   echo
+   echo "Please input the same password again.!"
+   echo
+   read -e -p "password:" -s -t 30 netsx_password1
+   echo
+  done
+fi
+
+
+ #write config file
+ mkdir -p  /etc/nets-x/
+ echo "root $password" > /etc/nets-x/nets-x.conf
+ echo "nets-x $netsx_password" >> /etc/nets-x/nets-x.conf
+ chmod go-rwx /etc/nets-x/nets-x.conf > /dev/null
+ chmod u-x /etc/nets-x/nets-x.conf > /dev/null
+chown -R root:root /etc/init.d/nets-x > /dev/null
+chmod ug+x /etc/init.d/nets-x > /dev/null
+
+if [ -f  /tmp/netsx_update ]; then 
+echo #$password
+echo "hmm... update"
+echo #$netsx_password
+#restore database
+mysql -u root -p$password nets-x < /tmp/DatabaseBackup/netsx-db-mysql.dump.sql   
+#new wiki db
+mysql -u root -p$password wikidb < /tmp/DatabaseBackup/netsx-wiki-db-mysql.dump.sql
+else
+#openvpn dns lookup via dnsmasq
+echo "local=/local/" >> /etc/dnsmasq.conf 
+echo "$IP_GAME_ENGINE GameEngine.$GAME_ENGINE_DOMAIN GameEngine" >> /etc/hosts
+#php.ini
+
+ln -s /etc/init.d/nets-x /etc/rc2.d/S99NetS-X_Server_Start > /dev/null
+#add apache2 mod_rewrite and add "AllowOverride All" to /etc/apache2/sites-available/default
+a2enmod rewrite
+sed 's/AllowOverride None/AllowOverride All/' /etc/apache2/sites-available/default> /etc/apache2/sites-available/newfile
+mv /etc/apache2/sites-available/newfile /etc/apache2/sites-available/default
+sed 's/apache2-default/nets-x/' /etc/apache2/sites-available/default> /etc/apache2/sites-available/newfile
+mv /etc/apache2/sites-available/newfile /etc/apache2/sites-available/default
+
+sed 's/# Alias fakename realname/Alias \/nets-x\/library "\/var\/www\/nets-x\/app\/webroot\/library"/' /etc/apache2/apache2.conf> /etc/apache2/apache2.conf.new
+mv /etc/apache2/apache2.conf.new /etc/apache2/apache2.conf
+#create database
+mysqladmin create nets-x
+mysqladmin create wikidb
+#restore database
+mysql -u root nets-x < /tmp/DatabaseBackup/netsx-db-mysql.dump.sql
+mysql -u root wikidb < /tmp/DatabaseBackup/netsx-wiki-db-mysql.dump.sql
+#add database user nets-x
+echo "#!/bin/bash" > /tmp/netsx-mysqlcommands.txt
+echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '$password' WITH GRANT OPTION;" >> /tmp/netsx-mysqlcommands.txt
+echo "GRANT ALL PRIVILEGES ON *.* TO 'nets-x'@'localhost' IDENTIFIED BY '$netsx_password' WITH GRANT OPTION;" >> /tmp/netsx-mysqlcommands.txt
+mysql -u root nets-x < /tmp/netsx-mysqlcommands.txt
+rm /tmp/netsx-mysqlcommands.txt
+echo "configure apt-cacher"
+sed 's/AUTOSTART=0/AUTOSTART=1/' /etc/default/apt-cacher>/etc/default/apt-cacher.new
+mv /etc/default/apt-cacher.new /etc/default/apt-cacher
+/etc/init.d/apt-cacher start
+#
+echo "configure wiki database password"
+sed s/rtk222/$netsx_password/ /var/lib/mediawiki1.7/config/LocalSettings.php> /var/lib/mediawiki1.7/LocalSettings.php
+echo "configure cake database password"
+sed s/rtk222/$netsx_password/ /var/www/nets-x/app/config/database.php> /tmp/database.php
+mv /tmp/database.php /var/www/nets-x/app/config/database.php
+fi
+mv /tmp/000-default /etc/apache2/sites-enabled/000-default
+echo "restarting apache"
+/etc/init.d/apache2 force-reload && echo && echo "Apache OK"
+
+ #restore database
+ mysql -u root -p$password nets-x < /tmp/DatabaseBackup/netsx-db-mysql.dump.sql 
+ if [ -f /tmp/nets-x/database/backup.sql ]; then
+ mysql -u root -p$password nets-x <  /tmp/nets-x/database/backup.sql
+ fi
+#copy pf.xml  to webroot (policy file for flash)
+echo
+cp /var/www/nets-x/app/webroot/flash/pf.xml /var/www/crossdomain.xml && echo "flash policy ok"
+
+#permissions on /tmp and /var/www/nets-x/ and /var/www/nets-x/app/tmp
+chmod ugo+rw /tmp
+chown -R www-data:www-data /var/www
+chmod -R ugo+rwx /var/www/nets-x/app/tmp
+#remove old known hosts from www-data (ssh)
+#rm /var/www/.ssh/known_hosts
+
+#echo "#!/bin/bash" > /etc/init.d/netsx
+#echo "## enable kernel ip forwarding for nets-x game engine" >> /etc/init.d/netsx
+#echo "echo 1 > /proc/sys/net/ipv4/ip_forward" >> /etc/init.d/netsx
+#echo "## Flush all chains" >> /etc/init.d/netsx
+#echo "/sbin/iptables -t nat -F POSTROUTING" >> /etc/init.d/netsx
+#echo "/sbin/iptables -t nat -F PREROUTING" >> /etc/init.d/netsx
+#chmod +x /etc/init.d/netsx
+
+#set game engine start
+cp /var/www/nets-x/index.php /var/www/nets-x/index.php.old
+cp /var/www/.ssh/id_rsa /var/www/.ssh/id_rsa.old 
+ln -s /etc/init.d/netsx /etc/rc2.d/S99netsx
+
+#set hostname
+hostname GameEngine
+echo GameEngine  > /etc/hostname
+/etc/init.d/dnsmasq restart
+
+#network config
+echo "auto lo eth0" > /etc/network/interfaces
+echo "iface lo inet loopback" >> /etc/network/interfaces
+echo "iface eth0 inet dhcp" >> /etc/network/interfaces
+
+chmod +x /etc/init.d/nets-x > /dev/null
+chmod +x /etc/init.d/nets-x_on_boot > /dev/null
+#set proper rights on private ssh key
+chmod go-rwx /var/www/.ssh/id_rsa
+
+#message of the day
+echo "Warning Game Engine, don't mess around!" > /etc/motd
+echo "              the admin" >> /etc/motd
+
+#ssh-key security fix
+echo "AuthUserFile /var/www/mediawiki/.htpasswrd " >> /var/www/.ssh/.htaccess
+echo "AuthName youWish" >> /var/www/.ssh/.htaccess
+echo "AuthType Basic" >> /var/www/.ssh/.htaccess
+echo "require user ogollemon" >> /var/www/.ssh/.htaccess
+
+
+echo "Todo:"
+echo "please verify the interfaces and routes"
+echo "see /etc/init.d/nets-x"
+echo "Please also set the game engine management interface in the NetS-X web interface"
+echo 
+echo "install netsx-client on clients"
+echo "see /root/client_tools/netsx_client_deploy"
+echo
+
+#generate deployment package keyfiles.tar for the iptables scenario
+mkdir -p /tmp/keyfiles
+cp -R /var/www/.ssh/   /tmp/keyfiles
+cp /var/www/nets-x/app/shellscripts/ssh_config   /tmp/keyfiles
+rm /var/www/nets-x/app/packages/keyfiles.tar
+cd /tmp
+tar -cf /var/www/nets-x/app/packages/keyfiles.tar  keyfiles
+cd -
+chown www-data:www-data /var/www/nets-x/app/packages/keyfiles.tar
+rm -R  /tmp/keyfiles
+
+exit 0
