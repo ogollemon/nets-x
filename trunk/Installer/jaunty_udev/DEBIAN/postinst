@@ -1,0 +1,3 @@
+#!/bin/sh
+ln -s ../sbin/udevadm /bin/udevinfo 
+exit 0

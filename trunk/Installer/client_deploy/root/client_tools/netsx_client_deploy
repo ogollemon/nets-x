@@ -1,0 +1,22 @@
+#!/bin/bash
+rm -f /root/.ssh/known_hosts
+
+PASSWORD=rtk222
+
+echo "NetS-X Client deploy script"
+echo "Version: 0.1"
+echo "Maintainer: Alexander Ott <mail@alexanderott.com>"
+echo
+
+apt-get update
+apt-get install -y  --assume-yes --force-yes  --allow-unauthenticated expect ssh > /dev/null #Install Packages. Don't try to use this parameters with aptitude, it will fail!
+#alle pcs
+mylist=(172.16.10.1 172.16.10.2 172.16.10.3 172.16.10.4 172.16.10.5 172.16.10.7 172.16.10.10 172.16.10.13 172.16.10.16)
+#ping test!!!
+
+for TARGET in "${mylist[@]}"; do
+
+
+/root/client_tools/deploy_helper $PASSWORD $TARGET echo; echo "deb http://www.nets-x.hs-bremen.de/nets-x/ ./" >> /etc/apt/sources.list; apt-get update; apt-get install -y  --assume-yes --force-yes  --allow-unauthenticated netsx-client;reboot
+
+done

@@ -1,0 +1,12 @@
+10.0.1.2:Router Internet E0/0
+10.0.8.1:Router Internet E0/1
+10.0.1.3:DMZ_SSERVER PC01
+10.0.1.4:DMZ_HONEYD PC02
+10.0.1.5:DDWRT (WEP-WLAN-Router)
+10.0.1.6:DMZ_SQL (ex Pluto)
+10.0.1.7:DMZ_Directory (ex Venus)
+10.0.1.8:DMZ_Honeypot (ex. Zeus)
+10.0.8.10:GI_SERVER PC07
+10.0.8.20:GI_HONEYD PC10
+10.0.8.40:GI_WHOIS (ex Ramses)
+10.0.8.50:GI_BackTrack (ex BackTrack)

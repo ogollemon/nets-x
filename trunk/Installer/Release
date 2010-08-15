@@ -1,0 +1,13 @@
+Origin: Debian
+Label: Debian
+Suite: debian-updates
+Version: 4.0
+Codename: edgy
+Date: 
+Architectures: amd64 hppa i386 ia64 powerpc sparc
+Components: main
+Description: Debian Updates
+MD5Sum:
+ cf9ccd8c712400dd88f9270d49a1dbc9              190 Release
+SHA1:
+ e8a92ece96483a5ec7ac048539ba1977aca46570              255 Release

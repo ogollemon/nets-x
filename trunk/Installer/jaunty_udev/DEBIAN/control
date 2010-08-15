@@ -1,0 +1,8 @@
+Package: udevinfo-jaunty
+Version: 5
+Section: fai
+Priority: optional
+Architecture: all
+Depends: udev
+Maintainer: Alexander Ott <mail [at] alexanderott [dot] com>
+Description: Fai stuff
