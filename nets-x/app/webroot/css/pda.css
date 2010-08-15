@@ -1,0 +1,242 @@
+#pda 
+{
+	position: absolute;
+	top:88px;
+	left:2px;
+    background-image: url(../img/pda/pda_background.jpg);
+    background-repeat: no-repeat;
+    width: 720px;
+    height: 450px;
+    padding: 0px;
+    text-align: left;
+    border:4px solid #444;
+    z-index:51;
+}
+
+#pda_screen{
+    position:absolute;
+    top:28px;
+    left:45px;
+    width:618px;
+    height:398px;
+    z-index:51;
+/*     border:1px solid #f00; */
+}
+
+#pda .header { width: 165px; height: 32px;  margin-left: 5px; }
+#pda .tasks .header { background-image: url(../img/pda/pda_scenarios_title.png); }
+#pda .player .header { background-image: url(../img/pda/pda_player_title.png); }
+#pda .wiki .header { background-image: url(../img/pda/pda_wiki_title.png); }
+
+#pda .scrollable {overflow:auto;}
+
+#pda_left_container {
+    position:absolute;
+    bottom: 5px;
+    left:5px;
+    width:260px;
+    overflow:auto; 
+}
+#pda_right_container {
+    position:absolute;
+    bottom: 5px;
+    right:5px;
+    width:270px;
+    overflow:hidden;
+}
+#pda_big_container {
+    position:absolute;
+    bottom:5px;
+    left:0px;
+    width:580px;
+}
+#pda_edit_container {
+    position:absolute;
+    bottom:5px;
+    left:0px;
+    width:100%;
+}
+
+#pda .container
+{
+    height:295px;
+    -moz-border-radius: 2%;
+    border:2px solid #444444;
+    background: #0d0d0d;
+    overflow: auto; 
+    padding: 15px;
+}
+
+#pda .container h1 {
+    color: #73a304;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0px 0px 1em 0px;
+}
+#pda .container h2 {
+    color: #73a304;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0px 0px 0px 0px;
+}
+
+/* Skills */
+#pda .skill{
+    padding: 0px;
+    margin: 2px;
+    border: 1px solid #444444;
+}
+
+#pda .skill .notaquired{
+    border: 1px solid #c78157;
+}
+
+
+/* #pda .container img { float: left; margin-right: 10px; margin-bottom: 8px;} */
+#pda .container p {
+    color: #a5c757;
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 1.3em;
+    margin: 0.5em 0px 1em 0px;
+}
+#pda .container p a { text-decoration: underline; color: #a5c757; font-weight: bold; padding: 2px 1px 2px 1px;}
+#pda .container p a:hover {background-color: #73a304; color: #fff;text-decoration: none;}
+
+
+
+#pda .container ul 
+{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    text-align: left;
+}
+#pda .container ul li a 
+{
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    padding: 2px 0px;
+    color: #73a304;
+    font-size: 12px;
+    font-weight: bold;
+}
+#pda .container ul li a.active, #pda .container ul li a:hover.active {
+    color: #a5c757;
+    background: #73a304;
+}
+#pda .container ul li a:hover {color: #333; background:#73a304;}
+
+
+#pda .nav ul
+{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    text-align: left;
+}
+
+#pda .nav ul li { float: left; }
+
+#pda .nav ul li a
+{
+    background: no-repeat top left;
+    text-decoration: none;
+    font-size: 10px/12px;
+    float: left;
+    margin: 0px;
+    height: 51px;
+    width: 51px;
+    margin-left:0px;
+}
+
+
+#pda_exit ul, #pda_nav ul
+{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    text-align: left;
+}
+
+
+#pda ul li a
+{
+    background: no-repeat top left;
+    text-decoration: none;
+    font-size: 10px/12px;
+    margin: 0px;
+    padding:0px;
+}
+
+#pda_nav
+{
+    position:absolute;
+    top:30px;
+    right:65px; 
+    margin: 0px;
+    padding: 0px;
+    z-index:52;
+}
+
+#pda_nav ul li a {
+	background: no-repeat top left;
+	height:51px;
+	width:51px;
+	float:left;
+}
+
+
+#pda_exit
+{
+    position: absolute;
+    bottom: 25px;
+    right: 2px; 
+    margin: 0px;
+    padding: 0px;
+    z-index:7;
+}
+#pda_exit ul li a {
+    background:url(../img/pda/pda_navi_exit_link.png);
+    height: 61px;
+    width: 43px;
+    float:left;
+    margin-left: 13px;
+    margin-top: -8px;
+}
+#pda_exit ul li a:hover {background:url(../img/pda/pda_navi_exit_hover.png);}
+
+
+/*edit button */
+  a.edit { background: no-repeat top left; text-decoration: none; font-size: 10px/12px; float: right; margin: 0px; height: 39px; width: 39px; }
+  a.edit {background:url('../img/pda/pda_actions_edit_link.png');}
+  a.edit:hover {background:url('../img/pda/pda_actions_edit_hover.png');}
+  a.edit.active {background:url('../img/pda/pda_actions_edit_active.png');}
+
+#profile_edit
+{
+    position:absolute;
+    width:39px;
+    top:15px;
+    right:15px;
+    margin:0px;
+    padding:0px;
+    z-index:7;
+}
+
+#pda_nav ul li a.scenarios {background:url(../img/pda/pda_navi_scenarios_link.png) no-repeat top left;}
+#pda_nav ul li a.scenarios:hover {background:url(../img/pda/pda_navi_scenarios_hover.png) no-repeat top left;}
+#pda_nav ul li a.scenarios.active {background:url(../img/pda/pda_navi_scenarios_active.png) no-repeat top left; cursor: default;}
+
+#pda_nav li a.player {background:url(../img/pda/pda_navi_player_link.png) no-repeat top left;}
+#pda_nav li a.player:hover {background:url(../img/pda/pda_navi_player_hover.png) no-repeat top left;}
+#pda_nav li a.player.active {background:url(../img/pda/pda_navi_player_active.png) no-repeat top left; cursor: default;}
+
+#pda_nav li a.wiki {background:url(../img/pda/pda_navi_wiki_link.png) no-repeat top left;}
+#pda_nav li a:hover.wiki {background:url(../img/pda/pda_navi_wiki_hover.png) no-repeat top left;}
+#pda_nav li a.wiki.active {background:url(../img/pda/pda_navi_wiki_active.png) no-repeat top left; cursor: default;}
+
+#pda_nav li a.exams {background:url(../img/pda/pda_navi_exams_link.png) no-repeat top left;}
+#pda_nav li a.exams:hover {background:url(../img/pda/pda_navi_exams_hover.png) no-repeat top left;}
+#pda_nav li a.exams.active {background:url(../img/pda/pda_navi_exams_active.png) no-repeat top left; cursor: default;}

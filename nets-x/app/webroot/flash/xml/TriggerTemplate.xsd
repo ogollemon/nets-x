@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TriggerTemplate"
+    targetNamespace="http://tempuri.org/TriggerTemplate.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/TriggerTemplate.xsd"
+    xmlns:mstns="http://tempuri.org/TriggerTemplate.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  
+  <!-- Der TriggerArea als oberobjekt und was er beinhaltet -->
+  <xs:element name="triggerArea">
+    <xs:annotation>
+      <xs:documentation>
+        Das TriggerArea Objekt, es beschreibt eine TriggerArea in der Spielwelt.
+        Es beinhaltet die grafischen einstellungen so wie sein verhalten als Statemachien
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="objectInfo" type="ObjectInfo" />
+        <xs:element name="statemachine" type="Statemachine" />
+        <!--xs:element name="graphics" type="Graphics" /-->
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- **************** OBJECT **************** -->
+
+  <xs:complexType name="ObjectInfo">
+    <xs:all>
+      <xs:element name="id" type="xs:unsignedInt"></xs:element>
+      <xs:element name="name" type="xs:string"></xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <!-- **************** STATEMACHINE **************** -->
+
+  <!-- Die Statemachine der TriggerArea -->
+  <xs:complexType name="Statemachine">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="state" type="State" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Die Liste an States aus denen eine Statemachine besteht -->
+  <xs:complexType name="State">
+    <xs:annotation>
+      <xs:documentation>
+        Ein State beschreibt alle möglichen einstellungen die PRO state
+        unterschiedlich sein können und einstellbar sind.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="enabled" type="xs:boolean"/>
+      <xs:element name="events" type="Events" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="id" type="xs:int" use="required" />
+    <xs:attribute name="name" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <!-- Die möglichen Events welche beim Statewechsel auftreten können -->
+  <xs:complexType name="Events">
+    <xs:annotation>
+      <xs:documentation>
+        Events halten die informationen was mit einer TriggerArea passieren soll wenn in
+        einem bestimmten status ein bestimmtes Event kommt. Bsp.:
+        Der Spieler rennt gegen die TriggerArea
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="touch" type="Event" minOccurs="0" />
+      <xs:element name="triggerEvent" type="Event" minOccurs="0" />
+    </xs:all>
+  </xs:complexType>
+
+  <!-- Die liste der Trigger die ausgelößt werden können -->
+  <xs:complexType name="Event">
+    <xs:all>
+      <xs:element name="triggers" minOccurs="0">
+        <xs:complexType>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element name="trigger" type="Trigger" minOccurs="0" />
+            <!-- Special trigger (or game trigger) -->
+            <xs:element name="skillTrigger" type="EventSkillGain" minOccurs="0" />
+            <xs:element name="levelTrigger" type="EventLevelChange" minOccurs="0" />
+            <xs:element name="scoreTrigger" type="EventScoreGain" minOccurs="0" />
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="nextStateId" type="xs:unsignedInt" use="required" />
+  </xs:complexType>
+
+  <!-- Enumeration, damit nur die möglichen Bewegungen ausgewählt werden können -->
+  <xs:simpleType name="MovementTypes" >
+    <xs:annotation>
+      <xs:documentation>
+        Die möglichen Bewebungsaktionen
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="stand" />
+      <xs:enumeration value="randomWalk" />
+      <xs:enumeration value="destination" />
+      <xs:enumeration value="followPlayer" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Enumeration, damit nur die möglichen trigger ausgewählt werden können -->
+  <xs:simpleType name="EventType" >
+    <xs:annotation>
+      <xs:documentation>
+        Die möglichen Events die bei anderen Statemachines ausgelöst werden können wenn ein
+        statewechsel eintrit
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="talk" />
+      <xs:enumeration value="touch" />
+      <xs:enumeration value="action" />
+      <xs:enumeration value="collision" />
+      <xs:enumeration value="correctAnswer" />
+      <xs:enumeration value="answer" />
+      <xs:enumeration value="reachDest" />
+      <xs:enumeration value="triggerEvent" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Special Trigger Events -->
+  <!-- Level wurde gewechselt -->
+  <xs:complexType name="EventLevelChange">
+    <xs:annotation>
+      <xs:documentation>
+        Ein neues "Level" laden
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="triggers" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="trigger" type="Trigger" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="nextLevelId" type="xs:unsignedInt" use="required" />
+    <xs:attribute name="spawnPoint" type="xs:unsignedInt" use="required" />
+  </xs:complexType>
+
+  <!-- Neuen Skill bekommen -->
+  <xs:complexType name="EventSkillGain">
+    <xs:annotation>
+      <xs:documentation>
+        Dem spieler einen neuen Skill geben
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="triggers" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="trigger" type="Trigger" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="skillId" type="xs:unsignedInt" use="required" />
+  </xs:complexType>
+
+  <!-- Skillpunkte bekommen oder abziehen -->
+  <xs:complexType name="EventScoreGain">
+    <xs:annotation>
+      <xs:documentation>
+        Punktezahl des spielers verändern
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="triggers" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="trigger" type="Trigger" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="scoreChange" type="xs:int" use="required" />
+  </xs:complexType>
+
+  <!-- Die beim Statewechsel ausfühbaren trigger -->
+  <xs:complexType name="Trigger">
+    <xs:attribute name="machineId" type="xs:unsignedInt" use="required" />
+    <xs:attribute name="eventType" type="EventType" use="required" />
+  </xs:complexType>
+
+  <!-- **************** STATEMACHINE END, NOW GRAHICS **************** -->
+
+  <!-- Die Grafischen einstellungen für einen Npc. Z.B. Name, Sprites, position etc. -->
+  <xs:complexType name="Graphics">
+    <xs:all>
+      <!--xs:element name="position" type="Position" /-->
+      <xs:element name="touchArea" type="GeomShapes" />
+    </xs:all>
+    <!--xs:attribute name="id" type="xs:integer" use="required" /-->
+    <!--xs:attribute name="machineId" type="xs:integer" use="required" /-->
+    <!--xs:attribute name="name" type="xs:string" use="required" /-->
+  </xs:complexType>
+
+  <!-- Mögliche arten eines Logischen bereiches -->
+  <xs:complexType name="GeomShapes">
+    <xs:annotation>
+      <xs:documentation>
+        Beliebige Menge von geom. Formen
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="circle" type="Circle" />
+      <xs:element name="rectangle" type="Rectangle" />
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- Mathematische beschreibung eines kreises -->
+  <xs:complexType name="Circle">
+    <xs:annotation>
+      <xs:documentation>
+        Beschreibung einer Fläche als Kreis
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="x" type="xs:integer" />
+    <xs:attribute name="y" type="xs:integer" />
+    <xs:attribute name="radius" type="xs:integer" />
+  </xs:complexType>
+
+  <!-- mathematische (informatische ^^) beschreibung einer fläche -->
+  <xs:complexType name="Rectangle">
+    <xs:annotation>
+      <xs:documentation>
+        Beschreibung einer Fläche als Rechteck
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="x" type="xs:integer" use="required" />
+    <xs:attribute name="y" type="xs:integer" use="required" />
+    <xs:attribute name="width" type="xs:positiveInteger" use="required" />
+    <xs:attribute name="height" type="xs:positiveInteger" use="required" />
+  </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,47 @@
+<npc>
+  <objectInfo>
+    <id>6</id>
+    <name>Chef</name>
+  </objectInfo>
+
+  <graphics>
+
+    <sprite>
+      <image id="0" name="npc3.png"/>
+      <tileSize height="64" width="32"/>
+    </sprite>
+
+    <collisionArea>
+      <circle x="0" y="-10" radius="10"/>
+    </collisionArea>
+    <touchArea>
+      <circle x="0" y="-20" radius="30"/>
+    </touchArea>
+
+    <smallTalks>
+      <talk>Geh an die Arbeit!</talk>
+      <talk>Musst du nicht arbeiten?</talk>
+      <talk>Mal wieder nichts zu tun?</talk>
+    </smallTalks>
+
+    <animation>
+      <anim id="0" desc="Stehen">
+        <script nr="0" src="3"/>
+        <script nr="1" src="7"/>
+        <script nr="2" src="10"/>
+        <script nr="3" src="15"/>
+        <script nr="4" src="19"/>
+        <script nr="5" src="20"/>
+      </anim>
+
+      <anim id="1" desc="Gehen">
+        <script nr="0" src=":0-3,100"/>
+        <script nr="1" src=":4-7,100"/>
+        <script nr="2" src=":8-11,100"/>
+        <script nr="3" src=":12-15,100"/>
+        <script nr="4" src=":16-19,100"/>
+        <script nr="5" src=":20-23,100"/>
+      </anim>
+    </animation>
+  </graphics>
+</npc>

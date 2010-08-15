@@ -1,0 +1,5 @@
+#!/bin/sh
+HACKSERVER=$1
+H_USERNAME=$2
+H_PASSWORT=$3  #must be md5 encrypted
+ssh -qqF /var/www/nets-x/app/shellscripts/ssh_config root@$HACKSERVER /var/www/nets-x/app/shellscripts/setup_defacement.sh  $H_USERNAME "'"$3"'" 

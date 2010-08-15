@@ -1,0 +1,148 @@
+[24-Sep-2007 11:10:27] PHP Parse error:  syntax error, unexpected T_CLASS in /var/www/nets-x/app/models/parameter_value.php on line 15
+[24-Sep-2007 13:29:26] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/controllers/scenarios_controller.php on line 409
+[24-Sep-2007 16:40:15] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /var/www/nets-x/app/controllers/scenarios_controller.php on line 423
+[24-Sep-2007 16:40:49] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /var/www/nets-x/app/controllers/scenarios_controller.php on line 423
+[24-Sep-2007 16:43:54] PHP Parse error:  syntax error, unexpected ')' in /var/www/nets-x/app/controllers/scenarios_controller.php on line 425
+[25-Sep-2007 17:11:04] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /var/www/nets-x/app/controllers/scenarios_controller.php on line 52
+[26-Sep-2007 13:57:43] PHP Fatal error:  Cannot redeclare ScenariosController::_evaluateShellBased() in /var/www/nets-x/app/controllers/scenarios_controller.php on line 576
+[26-Sep-2007 14:02:47] PHP Fatal error:  Cannot pass parameter 2 by reference in /var/www/nets-x/app/controllers/scenarios_controller.php on line 414
+[26-Sep-2007 14:03:17] PHP Fatal error:  Call to a member function read() on a non-object in /var/www/nets-x/app/views/scenarios/play_comparison_based.ctp on line 3
+[27-Sep-2007 09:54:04] PHP Parse error:  syntax error, unexpected T_STRING in /var/www/nets-x/app/views/scenarios/admin_upload_resource_files.ctp on line 27
+[27-Sep-2007 11:44:07] PHP Fatal error:  Call to a member function getLog() on a non-object in /var/www/nets-x/app/controllers/attachments_controller.php on line 149
+[27-Sep-2007 11:44:31] PHP Fatal error:  Call to a member function getLog() on a non-object in /var/www/nets-x/app/controllers/attachments_controller.php on line 149
+[27-Sep-2007 11:46:33] PHP Fatal error:  Call to a member function getLog() on a non-object in /var/www/nets-x/app/controllers/attachments_controller.php on line 149
+[27-Sep-2007 11:47:20] PHP Fatal error:  Call to a member function getLog() on a non-object in /var/www/nets-x/app/controllers/attachments_controller.php on line 149
+[27-Sep-2007 11:48:23] PHP Fatal error:  Call to a member function getLog() on a non-object in /var/www/nets-x/app/controllers/attachments_controller.php on line 149
+[27-Sep-2007 11:57:40] PHP Fatal error:  Call to a member function getLog() on a non-object in /var/www/nets-x/app/controllers/attachments_controller.php on line 152
+[27-Sep-2007 11:58:01] PHP Fatal error:  Call to a member function getLog() on a non-object in /var/www/nets-x/app/controllers/attachments_controller.php on line 152
+[27-Sep-2007 11:59:37] PHP Fatal error:  Call to a member function getLog() on a non-object in /var/www/nets-x/app/controllers/attachments_controller.php on line 152
+[27-Sep-2007 11:59:45] PHP Fatal error:  Call to a member function getLog() on a non-object in /var/www/nets-x/app/controllers/attachments_controller.php on line 152
+[27-Sep-2007 12:02:08] PHP Fatal error:  Call to a member function getLog() on a non-object in /var/www/nets-x/app/controllers/attachments_controller.php on line 152
+[27-Sep-2007 12:06:30] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_FUNCTION in /var/www/nets-x/app/controllers/scenarios_controller.php on line 236
+[27-Sep-2007 12:20:57] PHP Parse error:  syntax error, unexpected T_DNUMBER in /var/www/nets-x/app/views/scenarios/admin_upload_resource_files.ctp on line 14
+[27-Sep-2007 12:45:28] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /var/www/nets-x/app/views/scenarios/admin_upload_resource_files.ctp on line 6
+[27-Sep-2007 13:35:04] PHP Fatal error:  Call to undefined function value() in /var/www/nets-x/app/controllers/components/files_uploader.php on line 202
+[27-Sep-2007 13:45:19] PHP Parse error:  syntax error, unexpected ';', expecting T_FUNCTION in /var/www/nets-x/app/controllers/components/files_uploader.php on line 390
+[27-Sep-2007 14:42:59] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /var/www/nets-x/app/views/scenarios/introduction.ctp on line 11
+[27-Sep-2007 14:46:16] PHP Parse error:  syntax error, unexpected T_STRING in /var/www/nets-x/app/views/scenarios/play_shell_based.ctp on line 26
+[27-Sep-2007 15:31:12] PHP Fatal error:  Call to a member function read() on a non-object in /var/www/nets-x/app/views/elements/mainmenu.ctp on line 18
+[27-Sep-2007 15:48:47] PHP Fatal error:  Cannot use object of type SessionComponent as array in /var/www/nets-x/app/controllers/scenarios_controller.php on line 514
+[27-Sep-2007 15:51:12] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/controllers/scenarios_controller.php on line 514
+[27-Sep-2007 15:51:22] PHP Fatal error:  Call to undefined method SessionComponent::find() in /var/www/nets-x/app/controllers/scenarios_controller.php on line 514
+[28-Sep-2007 09:55:52] PHP Parse error:  syntax error, unexpected T_PRINT in /var/www/nets-x/app/views/scenarios/admin_edit_comparison.ctp on line 6
+[28-Sep-2007 13:05:13] PHP Fatal error:  Call to undefined function read() in /var/www/nets-x/app/controllers/scenarios_controller.php on line 559
+[29-Sep-2007 16:50:00] PHP Parse error:  syntax error, unexpected ',', expecting '&' or T_VARIABLE in /var/www/nets-x/app/controllers/components/files_uploader.php on line 160
+[29-Sep-2007 17:05:36] PHP Fatal error:  Call to undefined function fbsql_read_blob() in /var/www/nets-x/app/controllers/attachments_controller.php on line 210
+[29-Sep-2007 17:10:42] PHP Fatal error:  Call to undefined function fbsql_read_blob() in /var/www/nets-x/app/controllers/attachments_controller.php on line 210
+[29-Sep-2007 18:54:00] PHP Fatal error:  Call to a member function findAllByPlayerId() on a non-object in /var/www/nets-x/app/controllers/players_controller.php on line 349
+[30-Sep-2007 13:33:43] PHP Parse error:  syntax error, unexpected '*', expecting T_FUNCTION in /var/www/nets-x/app/controllers/contents_controller.php on line 74
+[30-Sep-2007 13:44:15] PHP Parse error:  syntax error, unexpected T_PUBLIC in /var/www/nets-x/app/controllers/contents_controller.php on line 134
+[30-Sep-2007 13:48:45] PHP Fatal error:  Call to a member function findAll() on a non-object in /var/www/nets-x/app/controllers/contents_controller.php on line 71
+[30-Sep-2007 13:49:17] PHP Fatal error:  Call to a member function findAll() on a non-object in /var/www/nets-x/app/controllers/contents_controller.php on line 74
+[30-Sep-2007 13:49:20] PHP Fatal error:  Call to a member function findAll() on a non-object in /var/www/nets-x/app/controllers/contents_controller.php on line 74
+[30-Sep-2007 13:50:09] PHP Fatal error:  Call to a member function create() on a non-object in /var/www/nets-x/app/views/contents/add.ctp on line 4
+[30-Sep-2007 14:12:35] PHP Fatal error:  Call to undefined method ThemeableView::html() in /var/www/nets-x/app/views/contents/admin_index.ctp on line 3
+[30-Sep-2007 14:13:08] PHP Fatal error:  Call to undefined method ThemeableView::html() in /var/www/nets-x/app/views/contents/admin_index.ctp on line 3
+[30-Sep-2007 15:07:53] PHP Parse error:  syntax error, unexpected ')' in /var/www/nets-x/app/controllers/contents_controller.php on line 124
+[30-Sep-2007 15:14:22] PHP Fatal error:  Call to a member function findAllBySkillId() on a non-object in /var/www/nets-x/app/controllers/contents_controller.php on line 129
+[30-Sep-2007 15:31:16] PHP Fatal error:  Call to undefined function arrray_push() in /var/www/nets-x/app/controllers/contents_controller.php on line 132
+[30-Sep-2007 16:03:43] PHP Parse error:  syntax error, unexpected ')' in /var/www/nets-x/app/views/contents/admin_edit.ctp on line 13
+[01-Oct-2007 11:32:24] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /var/www/nets-x/app/controllers/contents_controller.php on line 181
+[01-Oct-2007 11:37:54] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /var/www/nets-x/app/controllers/contents_controller.php on line 189
+[01-Oct-2007 11:49:55] PHP Parse error:  syntax error, unexpected '<' in /var/www/nets-x/app/views/contents/admin_edit.ctp on line 53
+[01-Oct-2007 11:52:52] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /var/www/nets-x/app/views/contents/admin_edit.ctp on line 52
+[01-Oct-2007 11:57:44] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /var/www/nets-x/app/views/contents/admin_edit.ctp on line 52
+[01-Oct-2007 12:23:23] PHP Fatal error:  Call to a member function findAllByContentId() on a non-object in /var/www/nets-x/app/controllers/contents_controller.php on line 117
+[01-Oct-2007 14:09:45] PHP Fatal error:  Cannot redeclare ContentsController::admin_add() in /var/www/nets-x/app/controllers/contents_controller.php on line 74
+[01-Oct-2007 14:09:56] PHP Fatal error:  Cannot redeclare ContentsController::admin_index() in /var/www/nets-x/app/controllers/contents_controller.php on line 63
+[01-Oct-2007 15:34:30] PHP Parse error:  syntax error, unexpected T_PUBLIC in /var/www/nets-x/app/controllers/smalltalks_controller.php on line 99
+[01-Oct-2007 16:12:08] PHP Parse error:  syntax error, unexpected ';', expecting T_FUNCTION in /var/www/nets-x/app/controllers/wiki_controller.php on line 75
+[01-Oct-2007 16:43:54] PHP Parse error:  syntax error, unexpected ']' in /var/www/nets-x/app/controllers/wiki_controller.php on line 64
+[01-Oct-2007 17:30:36] PHP Fatal error:  Call to a member function findAllByScenario_id() on a non-object in /var/www/nets-x/app/controllers/wiki_controller.php on line 89
+[01-Oct-2007 17:31:45] PHP Fatal error:  Call to a member function findAllByScenario_id() on a non-object in /var/www/nets-x/app/controllers/wiki_controller.php on line 89
+[01-Oct-2007 17:33:31] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/views/wiki/load_content.ctp on line 4
+[01-Oct-2007 17:33:32] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/views/wiki/load_content.ctp on line 4
+[01-Oct-2007 17:35:51] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/views/wiki/load_content.ctp on line 4
+[01-Oct-2007 17:39:27] PHP Fatal error:  Call to a member function findAllByScenarioId() on a non-object in /var/www/nets-x/app/controllers/wiki_controller.php on line 90
+[01-Oct-2007 17:41:14] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/views/wiki/load_content.ctp on line 4
+[01-Oct-2007 18:12:38] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/controllers/wiki_controller.php on line 115
+[01-Oct-2007 18:21:37] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/controllers/wiki_controller.php on line 119
+[01-Oct-2007 18:21:50] PHP Fatal error:  Call to a member function findById() on a non-object in /var/www/nets-x/app/controllers/wiki_controller.php on line 119
+[02-Oct-2007 09:20:06] PHP Fatal error:  Cannot unset string offsets in /var/www/nets-x/cake/libs/view/helpers/html.php on line 265
+[02-Oct-2007 09:28:49] PHP Fatal error:  Cannot unset string offsets in /var/www/nets-x/cake/libs/view/helpers/html.php on line 265
+[02-Oct-2007 09:31:41] PHP Fatal error:  Cannot unset string offsets in /var/www/nets-x/cake/libs/view/helpers/html.php on line 265
+[02-Oct-2007 10:46:12] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /var/www/nets-x/app/controllers/contents_controller.php on line 125
+[02-Oct-2007 12:15:20] PHP Parse error:  syntax error, unexpected '"' in /var/www/nets-x/app/controllers/scenarios_controller.php on line 373
+[02-Oct-2007 13:18:47] PHP Parse error:  syntax error, unexpected T_RETURN, expecting T_STRING or T_VARIABLE or '{' or '$' in /var/www/nets-x/app/controllers/adventure_controller.php on line 125
+[02-Oct-2007 13:19:08] PHP Fatal error:  Call to undefined method AdventureController::renderElement() in /var/www/nets-x/app/controllers/adventure_controller.php on line 72
+[02-Oct-2007 13:21:12] PHP Fatal error:  Call to undefined method AdventureController::renderElement() in /var/www/nets-x/app/controllers/adventure_controller.php on line 72
+[02-Oct-2007 14:16:37] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /var/www/nets-x/app/views/wiki/load_content.ctp on line 16
+[02-Oct-2007 16:17:23] PHP Parse error:  syntax error, unexpected T_IF in /var/www/nets-x/app/views/wiki/load_content.ctp on line 9
+[02-Oct-2007 16:19:33] PHP Parse error:  syntax error, unexpected T_IF in /var/www/nets-x/app/views/wiki/load_content.ctp on line 9
+[02-Oct-2007 17:03:28] PHP Fatal error:  Call to undefined function loadPage() in /var/www/nets-x/app/controllers/wiki_controller.php on line 139
+[02-Oct-2007 17:03:44] PHP Fatal error:  Call to undefined function loadPage() in /var/www/nets-x/app/controllers/wiki_controller.php on line 139
+[02-Oct-2007 17:14:45] PHP Parse error:  syntax error, unexpected ';', expecting T_FUNCTION in /var/www/nets-x/app/controllers/wiki_controller.php on line 151
+[02-Oct-2007 17:15:21] PHP Parse error:  syntax error, unexpected ';', expecting T_FUNCTION in /var/www/nets-x/app/controllers/wiki_controller.php on line 150
+[03-Oct-2007 16:00:52] PHP Parse error:  syntax error, unexpected ']' in /var/www/nets-x/app/views/scenarios/play_shell_based.ctp on line 25
+[04-Oct-2007 10:46:24] PHP Parse error:  syntax error, unexpected '.' in /var/www/nets-x/app/views/contents/admin_list_contents_for_skill.ctp on line 10
+[04-Oct-2007 13:39:51] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /var/www/nets-x/app/views/wiki/load_content.ctp on line 12
+[04-Oct-2007 14:22:05] PHP Parse error:  syntax error, unexpected T_ELSE, expecting T_FUNCTION in /var/www/nets-x/app/controllers/wiki_controller.php on line 100
+[04-Oct-2007 14:38:10] PHP Parse error:  syntax error, unexpected T_PRINT in /var/www/nets-x/app/views/wiki/show_contents.ctp on line 20
+[04-Oct-2007 14:38:17] PHP Parse error:  syntax error, unexpected '*' in /var/www/nets-x/app/views/wiki/show_contents.ctp on line 86
+[04-Oct-2007 14:52:27] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/controllers/wiki_controller.php on line 154
+[04-Oct-2007 16:01:00] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /var/www/nets-x/app/controllers/wiki_controller.php on line 84
+[08-Oct-2007 11:03:10] PHP Fatal error:  Cannot redeclare Scenario::$hasMany in /var/www/nets-x/app/models/scenario.php on line 89
+[08-Oct-2007 11:57:09] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/views/wiki/load_item.ctp on line 12
+[08-Oct-2007 11:57:40] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/views/wiki/load_item.ctp on line 12
+[08-Oct-2007 12:00:35] PHP Parse error:  syntax error, unexpected ')' in /var/www/nets-x/app/views/wiki/load_item.ctp on line 12
+[08-Oct-2007 12:01:42] PHP Parse error:  syntax error, unexpected '/' in /var/www/nets-x/app/views/scenarios/admin_index.ctp on line 14
+[08-Oct-2007 12:37:13] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/views/players/admin_index.ctp on line 30
+[08-Oct-2007 12:37:31] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/views/players/admin_index.ctp on line 32
+[08-Oct-2007 12:46:47] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/views/wiki/edit_content_item.ctp on line 12
+[08-Oct-2007 12:55:46] PHP Fatal error:  Cannot redeclare AppController::__requireAdmin() in /var/www/nets-x/app/app_controller.php on line 99
+[08-Oct-2007 14:28:42] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/views/wiki/edit_content_item.ctp on line 13
+[08-Oct-2007 15:04:14] PHP Parse error:  syntax error, unexpected T_VARIABLE in /var/www/nets-x/app/controllers/wiki_controller.php on line 102
+[08-Oct-2007 15:57:37] PHP Fatal error:  Call to undefined method PlayersController::deletePlayer() in /var/www/nets-x/app/controllers/players_controller.php on line 147
+[08-Oct-2007 16:15:30] PHP Parse error:  syntax error, unexpected T_PRINT in /var/www/nets-x/app/views/wiki/show_contents.ctp on line 29
+[08-Oct-2007 16:49:31] PHP Parse error:  syntax error, unexpected T_VARIABLE in /var/www/nets-x/app/views/scenarios/index.ctp on line 25
+[08-Oct-2007 16:55:20] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /var/www/nets-x/app/views/scenarios/index.ctp on line 22
+[08-Oct-2007 17:16:44] PHP Parse error:  syntax error, unexpected T_FOREACH in /var/www/nets-x/app/views/scenarios/index.ctp on line 45
+[08-Oct-2007 17:31:23] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/controllers/players_controller.php on line 120
+[12-Oct-2007 15:01:31] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/views/scenarios/index.ctp on line 73
+[12-Oct-2007 16:10:27] PHP Parse error:  syntax error, unexpected ',', expecting ')' in /var/www/nets-x/app/views/scenarios/index.ctp on line 23
+[15-Oct-2007 17:14:33] PHP Fatal error:  Call to a member function findAll() on a non-object in /var/www/nets-x/app/controllers/players_controller.php on line 210
+[16-Oct-2007 09:21:12] PHP Parse error:  syntax error, unexpected ',' in /var/www/nets-x/app/views/players/index.ctp on line 44
+[16-Oct-2007 09:51:36] PHP Parse error:  syntax error, unexpected '>' in /var/www/nets-x/app/views/scenarios/play_shell_based.ctp on line 15
+[20-Nov-2007 11:11:25] PHP Fatal error:  Call to a member function create() on a non-object in /var/www/nets-x/app/views/assessments/add.ctp on line 4
+[20-Nov-2007 11:24:44] PHP Fatal error:  Call to a member function create() on a non-object in /var/www/nets-x/app/views/assessments/add.ctp on line 4
+[20-Nov-2007 11:42:41] PHP Parse error:  syntax error, unexpected '.' in /var/www/nets-x/app/views/assessments/add.ctp on line 42
+[21-Nov-2007 12:11:10] PHP Parse error:  syntax error, unexpected ';', expecting T_FUNCTION in /var/www/nets-x/app/controllers/assessments_controller.php on line 89
+[21-Nov-2007 12:36:22] PHP Parse error:  syntax error, unexpected ';' in /var/www/nets-x/app/controllers/assessments_controller.php on line 88
+[21-Nov-2007 12:36:38] PHP Fatal error:  Call to a member function findAll() on a non-object in /var/www/nets-x/app/controllers/assessments_controller.php on line 78
+[21-Nov-2007 12:36:51] PHP Fatal error:  Call to a member function findAll() on a non-object in /var/www/nets-x/app/controllers/assessments_controller.php on line 78
+[21-Nov-2007 15:09:16] PHP Fatal error:  Call to a member function findAll() on a non-object in /var/www/nets-x/app/controllers/assessments_controller.php on line 78
+[21-Nov-2007 16:06:55] PHP Fatal error:  Call to a member function findAllByPlayerId() on a non-object in /var/www/nets-x/app/controllers/players_controller.php on line 209
+[21-Nov-2007 16:08:16] PHP Fatal error:  Call to a member function findAllByPlayerId() on a non-object in /var/www/nets-x/app/controllers/players_controller.php on line 209
+[21-Nov-2007 16:10:49] PHP Fatal error:  Call to a member function findAllByPlayerId() on a non-object in /var/www/nets-x/app/controllers/players_controller.php on line 209
+[27-Nov-2007 11:39:07] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/controllers/assessments_controller.php on line 90
+[27-Nov-2007 11:39:20] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/controllers/assessments_controller.php on line 90
+[27-Nov-2007 11:40:00] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/controllers/assessments_controller.php on line 90
+[27-Nov-2007 11:40:06] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/controllers/assessments_controller.php on line 90
+[27-Nov-2007 11:40:25] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/controllers/assessments_controller.php on line 90
+[27-Nov-2007 11:42:00] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/controllers/assessments_controller.php on line 90
+[27-Nov-2007 11:42:06] PHP Parse error:  syntax error, unexpected '}' in /var/www/nets-x/app/controllers/assessments_controller.php on line 90
+[28-Nov-2007 14:19:22] PHP Fatal error:  Class 'BachelorsController' not found in /var/www/nets-x/cake/dispatcher.php on line 188
+[05-Dec-2007 13:59:31] PHP Parse error:  syntax error, unexpected ')' in /var/www/nets-x/app/controllers/assessments_controller.php on line 100
+[05-Dec-2007 14:28:07] PHP Parse error:  syntax error, unexpected ')' in /var/www/nets-x/app/controllers/assessments_controller.php on line 104
+[05-Dec-2007 14:52:22] PHP Parse error:  syntax error, unexpected ')' in /var/www/nets-x/app/controllers/assessments_controller.php on line 113
+[05-Dec-2007 14:53:12] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/nets-x/cake/libs/debugger.php on line 118
+[05-Dec-2007 14:54:06] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/nets-x/cake/libs/model/datasources/dbo_source.php on line 520
+[05-Dec-2007 14:55:50] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/nets-x/cake/libs/debugger.php on line 288
+[05-Dec-2007 14:56:29] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/nets-x/cake/libs/debugger.php on line 118
+[12-Dec-2007 16:42:12] PHP Parse error:  syntax error, unexpected T_AS, expecting ';' in /var/www/nets-x/app/views/contents/admin_index.ctp on line 7
+[12-Dec-2007 17:29:34] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /var/www/nets-x/app/views/contents/admin_index.ctp on line 12
+[12-Dec-2007 17:40:15] PHP Parse error:  syntax error, unexpected '/' in /var/www/nets-x/app/views/contents/admin_index.ctp on line 15
+[13-Dec-2007 15:07:10] PHP Fatal error:  Call to a member function link() on a non-object in /var/www/nets-x/app/views/assessments/admin_index.ctp on line 17
+[13-Dec-2007 15:46:23] PHP Fatal error:  Call to a member function read() on a non-object in /var/www/nets-x/app/views/adventure/index.ctp on line 11
+[11-Jan-2008 12:38:33] PHP Fatal error:  Call to a member function read() on a non-object in /var/www/nets-x/app/views/adventure/index.ctp on line 11
+[11-Jan-2008 12:38:58] PHP Fatal error:  Call to a member function read() on a non-object in /var/www/nets-x/app/views/adventure/index.ctp on line 11
