@@ -4,5 +4,5 @@ Section: nets-x
 Priority: optional
 Architecture: all
 Depends: openssh-server 
-Maintainer: Alexander Ott <mail@alexanderott.com>
+Maintainer: Alexander Ott <mail [aet] alexanderott.com>
 Description: nets-x game engine client

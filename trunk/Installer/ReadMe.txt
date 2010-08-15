@@ -1,6 +1,6 @@
 Name: NetS-X Builder Manual
 Version: 0.4.1
-Maintainer: Alexander Ott <mail@alexanderott.com>
+Maintainer: Alexander Ott <mail [aet] alexanderott.com>
 
 
 NetS-X Package building manual
