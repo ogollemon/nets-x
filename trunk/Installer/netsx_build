@@ -9,11 +9,11 @@ echo
 echo
 
 #some environment stuff
-MIRROR=www.nets-x.hs-bremen.de
-SVN_REP=netsx_WS08
+MIRROR=nets-x.googlecode.com
+SVN_REP=svn
 SVN_FOLDER=trunk
 SVN_PACKAGE_FOLDER=Installer
-DEB_REP=/var/www/netsx
+DEB_REP=/tmp/deb
 
 
 cd /root
@@ -107,4 +107,4 @@ done
 mv /root/$SVN_PACKAGE_FOLDER/deb/* $DEB_REP/
 rm -rf /root/$SVN_PACKAGE_FOLDER
 rm -f $START_DIR/netsx
-
+echo "The packages are located under $DEB_REP"
