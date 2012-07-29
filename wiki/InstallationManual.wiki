@@ -46,3 +46,7 @@ dhcp-boot=pxelinux.0,www.nets-x.hs-bremen.de,194.94.26.40
 =VMserver Installation=
 
 Connect the first ethernet interface with the OpenVPN router and initiate a pxe boot.
+
+==VMserver Password==
+The password is
+ r00tme
