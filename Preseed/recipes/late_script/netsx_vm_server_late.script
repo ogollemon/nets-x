@@ -28,11 +28,11 @@ apt-get update
 mkdir -p /home/vms
 
 cd /root
-wget http://www.nets-x.hs-bremen.de/netsx_WS08/trunk/Preseed/recipes/late_script/build_netsx_vms.script
+wget http://nets-x.googlecode.com/svn/trunk/Preseed/recipes/late_script/build_netsx_vms.script
 chmod +x ./build_netsx_vms.script
 
 #setting interfaces
-wget http://www.nets-x.hs-bremen.de/netsx_WS08/trunk/Preseed/config_files/vm_server/interfaces
+wget http://nets-x.googlecode.com/svn/trunk/Preseed/config_files/vm_server/interfaces
 cp ./interfaces /etc/network/
 
 
