@@ -44,5 +44,8 @@ rm /etc/rc2.d/S99install
 
 #rm /root/script
 
+#shutdown (to better show when finished) 
+shutdown now -h
+
 #reboot to system
-reboot
+#reboot
