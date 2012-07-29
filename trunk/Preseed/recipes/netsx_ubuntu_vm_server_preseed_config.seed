@@ -61,7 +61,7 @@ d-i debian-installer/allow_unauthenticated string true
 
 
 
-#---------------------User creation (root & stud)
+#---------------------User creation (administrator)
 
 # Skip creation of a root account (normal user account will be able to
 # use sudo). The default is false; preseed this to true if you want to set
