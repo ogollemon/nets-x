@@ -1,4 +1,5 @@
 #summary One-NetS-X Installation Manual.
+#labels Featured,Phase-Deploy
 
 = Introduction =
 This page guides through the installation process of NetS-X.
