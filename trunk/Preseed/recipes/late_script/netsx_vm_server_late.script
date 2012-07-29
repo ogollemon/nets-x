@@ -19,7 +19,7 @@ sleep 20
 #apt-cacher restart
 /etc/init.d/apt-cacher restart
 
-#activate van support
+#activate vlan support
 echo "8021q" >> /etc/modules
 
 #update
