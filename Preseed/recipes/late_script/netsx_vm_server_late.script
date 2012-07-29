@@ -36,6 +36,8 @@ wget http://nets-x.googlecode.com/svn/trunk/Preseed/config_files/vm_server/inter
 cp ./interfaces /etc/network/
 
 
+#build virtual machines
+/root/build_netsx_vms.script
 
 # delete script itself and boot trigger
 rm /etc/rc2.d/S99install
