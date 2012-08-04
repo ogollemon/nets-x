@@ -26,6 +26,8 @@ echo "8021q" >> /etc/modules
 #update
 apt-get update
 
+#VM stuff
+adduser administrator libvirtd
 mkdir -p /home/vms
 
 cd /root
