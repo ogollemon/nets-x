@@ -42,7 +42,7 @@ d-i apt-setup/universe boolean true
 
 # Additional repositories, local[0-9] available
 #Additional mirror (NetS-X mirror)
-d-i apt-setup/local0/repository string  deb http://www.nets-x.hs-bremen.de/nets-x/ ./
+d-i apt-setup/local0/repository string  deb http://nets-x.googlecode.com/svn/trunk/deb/ ./
 d-i apt-setup/local0/comment string NetS-X Server
 # Enable deb-src lines
 #d-i apt-setup/local0/source boolean true
