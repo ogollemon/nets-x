@@ -37,7 +37,7 @@ Script:
 {{{
 #!gpxe
 dhcp net0
-chain url://nets-x.googlecode.com/svn/trunk/Installer/NetsX-gpxeScript.gpxe
+chain https://nets-x.googlecode.com/svn/trunk/Installer/NetsX-gpxeScript.gpxe
 }}}
 
 Todo:
