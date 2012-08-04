@@ -45,6 +45,14 @@ dhcp net0
 chain https://nets-x.googlecode.com/svn/trunk/Installer/NetsX-gpxeScript.gpxe
 }}}
 
+
+Bug:
+{{{
+vesamenu.c32: not a COM32R image
+}}}
+Fix: enter help and press two times the enter key.
+
+
 Todo:
 http://etherboot.org/wiki/appnotes/autobootchainurl
 http://etherboot.org/wiki/httpboot
