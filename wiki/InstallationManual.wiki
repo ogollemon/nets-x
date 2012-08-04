@@ -15,7 +15,7 @@ PXEboot needs the configuration of a router, which supplies the client with theT
 
 
 =Installation topics=
-The NetS-X VMserver installation is fully automatic via PXEboot/netboot and preseed. The Topology itself has to be setup manually. 
+The NetS-X VMserver installation is fully automatic via netboot and preseed. The Topology itself has to be setup manually. 
 
 Installation topics
 
@@ -30,32 +30,13 @@ Installation topics
   # WEP Scenario Hardware Integration
 
 
-==Build Etherboot image=
-To build a gpxe boot image please see http://rom-o-matic.net.
-The preset is mostly fine, but add
-{{{
-DOWNLOAD_PROTO_HTTPS
-}}}
-and
-
-Embedded Script:
-{{{
-#!gpxe
-dhcp net0
-chain https://nets-x.googlecode.com/svn/trunk/Installer/NetsX-gpxeScript.gpxe
-}}}
 
 
 ==Download Etherboot Image==
 You can get an Image which is ready to bur it on a CD.
 http://nets-x.googlecode.com/files/netsx-gpxe-1.0.1.iso
 
-==Configure pxe boot==
 
- To configure pxe boot on your router add the following line to your DNSmasq config file.
-{{{
-dhcp-boot=pxelinux.0,www.nets-x.hs-bremen.de,194.94.26.40
-}}}
 
 
 ==VMserver Password==
