@@ -46,11 +46,9 @@ chain https://nets-x.googlecode.com/svn/trunk/Installer/NetsX-gpxeScript.gpxe
 }}}
 
 
-
-Todo:
-http://etherboot.org/wiki/appnotes/autobootchainurl
-http://etherboot.org/wiki/httpboot
-http://www.etherboot.org/doc50/html/mknbi.html
+==Download Etherboot Image==
+You can get an Image which is ready to bur it on a CD.
+http://nets-x.googlecode.com/files/netsx-gpxe-1.0.1.iso
 
 ==Configure pxe boot==
 
@@ -59,9 +57,6 @@ http://www.etherboot.org/doc50/html/mknbi.html
 dhcp-boot=pxelinux.0,www.nets-x.hs-bremen.de,194.94.26.40
 }}}
 
-=VMserver Installation=
-
-Connect the first ethernet interface with the OpenVPN router and initiate a pxe boot.
 
 ==VMserver Password==
 The password is
