@@ -2,12 +2,24 @@
 #labels Featured,Phase-Deploy
 
 = Introduction =
-This page guides through the installation process of NetS-X.
-The NetS-X VMserver installation is fully automatic via pxe boot and preseed. The Topology itself has to be setup manually. 
+This page guides through the installation process of NetS-X. There are two possible ways to install NetS-X, either via PXEboot or via Netboot image. Further more the needed hardware is reduced one again.  
+
+PXEboot needs the configuration of a router, which supplies the client with theTFTP boot server address. The TFTP boot can be initiated directly by using an image file on a booteable media.
+=Needed Hardware=
+
+  * one physical computer (CPU with virtualization extension)
+  * two physical ethernet network ports 
+  * one DD-WRT capable router
+  * one Alfa AWUS036H (500mW USB WLAN Adapter)
+  * optional: one connector between Alfa and the router
+
+
+=Installation topics=
+The NetS-X VMserver installation is fully automatic via PXEboot/netboot and preseed. The Topology itself has to be setup manually. 
 
 Installation topics
 
-  # OpenVPN Router Installation
+  # Router configuration or netboot preperation
   # VMserver Installation
   # Router Installation
   # Identify network cards
@@ -17,23 +29,6 @@ Installation topics
   # Interface Konfiguration Guests
   # WEP Scenario Hardware Integration
 
-=Needed Hardware=
-
-  * one physical computer (4 CPUs + 8GB RAM)
-  * four physical ethernet network ports 
-  * three Asus WL-500G Premium V2 (Router)
-  * one 128 MB USB Flashdrive
-  * one Alfa AWUS036H (500mW USB WLAN Adapter)
-  * one Fonera-Router
-  * one connector between Alfa and Fonera
-
-=OpenVPN Router Installation=
-
-NetS-X makes use of two different router models the Asus and the Fonera router. The Fonera router is designated scenario hardware. At the moment it is used for the WEP Crack scenario only.
-The Asus routers however are used as router in the NetS-X Topology itself, but also as OpenVPN gateway for remote use.
-NetS-X makes use of PacketProtector as OpenVPN gateway. It uses one of the Asus routers combined with the USB flashdirve. See the PacketProtector Hompage for more details on the installation.
-
-http://packetprotector.org/
 
 
 
