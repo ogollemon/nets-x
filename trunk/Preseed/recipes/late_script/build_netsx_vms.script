@@ -2,9 +2,9 @@
 
 ADMIN_USER=Student
 ADMIN_USER_SMALL=stud
-DISTRO=lucid
+DISTRO=precise
 PASSWORD=r00tme
-VM_ARCH=i386
+VM_ARCH=amd64
 
 #make vms
 #Game engine
