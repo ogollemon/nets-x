@@ -32,6 +32,7 @@ Installation topics
 
 ==Build Etherboot image=
 Todo:
+http://etherboot.org/wiki/appnotes/autobootchainurl
 http://www.etherboot.org/doc50/html/mknbi.html
 
 ==Configure pxe boot==
