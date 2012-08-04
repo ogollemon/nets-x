@@ -31,6 +31,15 @@ Installation topics
 
 
 ==Build Etherboot image=
+To build a gpxe boot image please see http://rom-o-matic.net.
+
+Script:
+{{{
+#!gpxe
+dhcp net0
+chain url://nets-x.googlecode.com/svn/trunk/Installer/NetsX-gpxeScript.gpxe
+}}}
+
 Todo:
 http://etherboot.org/wiki/appnotes/autobootchainurl
 http://etherboot.org/wiki/httpboot
