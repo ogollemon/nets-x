@@ -3,7 +3,7 @@
 # pxelinux.0,www.nets-x.hs-bremen.de,194.94.26.40
 # http://de.archive.ubuntu.com/ubuntu/dists/precise/main/installer-amd64/current/images/netboot/
 set 209:string pxelinux.cfg/default
-set 210:string tftp://194.94.26.40/
+set 210:string https://nets-x.googlecode.com/svn/trunk/netboot-installer/
 #set 66:string tftp://194.94.26.40/
 #chain ${210:string}pxelinux.0
-chain tftp://194.94.26.40/pxelinux.0
+chain https://nets-x.googlecode.com/svn/trunk/netboot-installer/pxelinux.0
