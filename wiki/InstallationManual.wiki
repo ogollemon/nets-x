@@ -33,12 +33,21 @@ Installation topics
 
 
 ==Download Etherboot Image==
-You can get an Image which is ready to burn it on a CD.
+*Please download the image file burn it on a CD.
+{{{
 http://nets-x.googlecode.com/files/netsx-gpxe-1.0.1.iso
-
-
+}}}
+*Install the NetS-X VM Server with the CD you just burned.
 
 
 ==VMserver Password==
 The password is
  r00tme
+
+==Backtrack Download==
+At http://www.backtrack-linux.org/downloads/ you can download the Backtrack 5, Gnome, 32bit, VMware Image.
+
+==Convert VMware Image to KVM==
+{{{
+qemu-img convert backtrck5.vmdk -O qcow2 backtrack5.qemu
+}}}
