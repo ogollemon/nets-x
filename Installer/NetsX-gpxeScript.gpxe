@@ -2,4 +2,4 @@
 #
 # pxelinux.0,www.nets-x.hs-bremen.de,194.94.26.40
 #
-tftp://194.94.26.40/pxelinux.0
+chain tftp://194.94.26.40/pxelinux.0
