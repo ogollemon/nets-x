@@ -32,13 +32,22 @@ Installation topics
 
 
 
-==Download Etherboot Image==
+==Installation NetS-X VM Server==
+
 *Please download the image file burn it on a CD.
+
 {{{
 http://nets-x.googlecode.com/files/netsx-gpxe-1.0.1.iso
 }}}
+
 *Install the NetS-X VM Server with the CD you just burned.
 
+*If you hit enter on "NetS-X VM Server install", give it a while (1-5min) to load.
+It will seem as it is crashed, but it is not.
+
+*choose language and location reflecting your preferences.
+
+*Wait for the installation to finish.
 
 ==VMserver Password==
 The password is
