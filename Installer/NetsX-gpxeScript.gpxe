@@ -5,6 +5,4 @@
 set 209:string pxelinux.cfg/default
 set 210:string tftp://194.94.26.40/
 #set 66:string tftp://194.94.26.40/
-#chain ${210:string}pxelinux.0
-imgload pxelinux.0
-boot pxelinux.0
+chain ${210:string}pxelinux.0,www.nets-x.hs-bremen.de,194.94.26.40
