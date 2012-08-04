@@ -3,7 +3,7 @@
 ADMIN_USER=Student
 ADMIN_USER_SMALL=stud
 DISTRO=lucid
-PASSWORD=password
+PASSWORD=r00tme
 VM_ARCH=i386
 
 #make vms
