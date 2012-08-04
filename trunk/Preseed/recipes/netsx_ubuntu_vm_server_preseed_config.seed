@@ -78,7 +78,7 @@ d-i debian-installer/allow_unauthenticated string true
 #d-i passwd/root-password-crypted password [MD5 hash]
 
 # To create a normal user account.
-d-i passwd/user-fullname string Admin NetS-X
+d-i passwd/user-fullname string NetS-X Admin
 d-i passwd/username string administrator
 # Normal user's password, either in clear text
 d-i passwd/user-password password r00tme
