@@ -32,8 +32,13 @@ Installation topics
 
 ==Build Etherboot image=
 To build a gpxe boot image please see http://rom-o-matic.net.
+The preset is mostly fine, but add
+{{{
+DOWNLOAD_PROTO_HTTPS
+}}}
+and
 
-Script:
+Embedded Script:
 {{{
 #!gpxe
 dhcp net0
