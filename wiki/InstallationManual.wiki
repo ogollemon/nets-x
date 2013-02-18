@@ -40,7 +40,8 @@ Installation topics
 http://nets-x.googlecode.com/files/netsx-gpxe-1.0.1.iso
 }}}
 
- # Install the NetS-X VM Server with the CD you just burned.
+ # Boot the CD you just burned.
+ # Install the NetS-X VM Server
  # If you hit enter on "NetS-X VM Server install", give it a while (1-5min) to load. It will seem as it is crashed, but it is not.
  # choose language and location reflecting your preferences.
 
