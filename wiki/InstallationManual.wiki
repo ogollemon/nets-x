@@ -2,7 +2,9 @@
 #labels Featured,Phase-Deploy
 
 = Introduction =
-This page guides through the installation process of NetS-X. There are two possible ways to install NetS-X, either via PXEboot or via Etherboot image. Further more the needed hardware is reduced one again.  
+This page guides through the installation process of NetS-X. NetS-X is a whole network environment. Therefor it demands a system on it's own (either VM or physical machine).   
+
+There are two possible ways to install NetS-X, either via PXEboot or via Etherboot image. Further more the needed hardware is reduced one again.  
 
 PXEboot needs the configuration of a router, which supplies the client with theTFTP boot server address. The Etherboot can be initiated directly by using an image file on a booteable media.
 =Needed Hardware=
