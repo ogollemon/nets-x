@@ -51,15 +51,23 @@ http://nets-x.googlecode.com/files/netsx-gpxe-1.0.1.iso
 
 ==VMserver Password==
 The password is
-{{{ r00tme}}}
+{{{
+r00tme
+}}}
 
 ==Preperation of Nets-X VM´s==
 Open a Terminal window and switch to root with
- {{{sudo -s}}}
+{{{
+sudo -s
+}}}
 switch to /root with
- {{{cd /root}}}
+{{{
+cd /root
+}}}
 and execute the script
- {{{./build_netsx_vms.script}}}
+{{{
+./build_netsx_vms.script
+}}}
 ==Backtrack Download==
 At http://www.backtrack-linux.org/downloads/ you can download the Backtrack 5, Gnome, 32bit, VMware Image.
 
