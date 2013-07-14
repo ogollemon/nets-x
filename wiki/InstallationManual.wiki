@@ -59,7 +59,7 @@ Open a Terminal window and switch to root with
 switch to /root with
  cd /root
 and execute the script
-
+ ./build_netsx_vms.script
 ==Backtrack Download==
 At http://www.backtrack-linux.org/downloads/ you can download the Backtrack 5, Gnome, 32bit, VMware Image.
 
