@@ -138,5 +138,5 @@ d-i finish-install/reboot_in_progress note
 #ntp mediawiki
 
 # trigger bash script which will run on first boot
-d-i preseed/late_command string wget http://www.nets-x.hs-bremen.de/netsx_WS08/trunk/Preseed/recipes/late_script/netsx_vm_server_late.script -O /target/root/script; chmod +x /target/root/script; ln -s /root/script /target/etc/rc2.d/S99install
+d-i preseed/late_command string wget https://nets-x.googlecode.com/svn/trunk/Preseed/recipes/late_script/netsx_vm_server_late.script -O /target/root/script; chmod +x /target/root/script; ln -s /root/script /target/etc/rc2.d/S99install
 
