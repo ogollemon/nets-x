@@ -19,11 +19,11 @@ NetS-X introduces the running prototype of a novel open source e-learning enviro
 
 The NetS-X e-learning environment is able to provide a fully controlled hacking environment, with on demand guidance and an optimized learning process. The hands on experience combined with the ongoing encouragement through instant feedback on request are delivering an interesting learning experience. NetS-X is setup on top of an existing enterprise like, sandbox network, to provide a suitable learning environment. Nothing is simulated or emulated.
 
-![http://nets-x.googlecode.com/svn/trunk/Stuff/pictures/wep-scenario-finish.jpg](http://nets-x.googlecode.com/svn/trunk/Stuff/pictures/wep-scenario-finish.jpg)
+![https://raw.githubusercontent.com/ogollemon/nets-x/master/Stuff/pictures/wep-scenario-finish.jpg](https://raw.githubusercontent.com/ogollemon/nets-x/master/Stuff/pictures/wep-scenario-finish.jpg)
 
 Therefore the experience of the practical learning module (scenario) is "the real deal„. Special scenario deployment, controlled by the game engine is the key to the multiuser capability of NetS-X. This deployment is realized by the implementation of different setup types for environment and user. The user knows every fault is reversible with the click of a button, and therefore encouraged to play around as he likes, exploring the environment in his own way. Multiple choice tests before and after a scenario are introduced to help understanding & remembering even better. The game motivated e- learning environment helps the player to extend the knowledge on his own and is supported by the game engine counselling. The build in framework technologies maintainable through admin interfaces are allowing tutors as well as the learner himself to add content to the education process. Students of the University of Applied Sciences Bremen become capable of developing even more scenarios respectively learning modules to the game after passing it. Now NetS-X is deployed initially with 4 Levels and 31 scenarios from brute force and man in the middle attacks to SQL injections and buffer overflows.
 
-![http://nets-x.googlecode.com/svn/trunk/Stuff/pictures/scenarios.jpg](http://nets-x.googlecode.com/svn/trunk/Stuff/pictures/scenarios.jpg)
+![https://raw.githubusercontent.com/ogollemon/nets-x/master/Stuff/pictures/scenarios.jpg](https://raw.githubusercontent.com/ogollemon/nets-x/master/Stuff/pictures/scenarios.jpg)
 
 <a href='http://www.youtube.com/watch?feature=player_embedded&v=bt-QCGBHRNg' target='_blank'><img src='http://img.youtube.com/vi/bt-QCGBHRNg/0.jpg' width='425' height=344 /></a>
 
@@ -31,12 +31,12 @@ Therefore the experience of the practical learning module (scenario) is "the rea
 
 NetS-X is an educational network security learning environment. It teaches knowledge via practical hands on exams in a secured network topology. The topology is using as much as 16 computer and a bunch of routers to simulate a medium size network.
 To reduce the amount of needed hardware, NetS-X makes now use of virtualization technology.
-![http://nets-x.googlecode.com/svn/trunk/Stuff/pictures/VMserver_Topology.jpg](http://nets-x.googlecode.com/svn/trunk/Stuff/pictures/VMserver_Topology.jpg)
+![https://raw.githubusercontent.com/ogollemon/nets-x/master/Stuff/pictures/VMserver_Topology.jpg](https://raw.githubusercontent.com/ogollemon/nets-x/master/Stuff/pictures/VMserver_Topology.jpg)
 
 # And the benefit? #
 The benefit of NetS-X is rapid education in the field of IT security by not just using simulation. An environment automatically setup for your needs with automatic evaluation.
 
-![http://nets-x.googlecode.com/svn/trunk/Stuff/pictures/wep-scenario-finish-ge.jpg](http://nets-x.googlecode.com/svn/trunk/Stuff/pictures/wep-scenario-finish-ge.jpg)
+![https://raw.githubusercontent.com/ogollemon/nets-x/master/Stuff/pictures/wep-scenario-finish-ge.jpg](https://raw.githubusercontent.com/ogollemon/nets-x/master/Stuff/pictures/wep-scenario-finish-ge.jpg)
 
 
 # Documentation #
